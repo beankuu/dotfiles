@@ -1,0 +1,76 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 599,
+       "width": 1060,
+       "x": 0,
+       "y": 0
+    },
+    "name": "rxvt-unicode-256color",
+    "percent": 0.5,
+    "swallows": [
+       {
+        "class": "^URxvt$",
+        "instance": "init_1",
+        "transient_for": "^$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    // splitv split container with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 599,
+               "width": 1060,
+               "x": 0,
+               "y": 0
+            },
+            "name": "rxvt-unicode-256color",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^URxvt$",
+                "instance": "init_2",
+                "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 599,
+               "width": 1060,
+               "x": 0,
+               "y": 0
+            },
+            "name": "urxvt",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^URxvt$",
+                "instance": "init_3",
+                "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

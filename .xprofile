@@ -1,0 +1,17 @@
+#! /bin/bash
+
+# ibus
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -drx
+
+# xinput
+xinput --set-prop "Microsoft Surface Type Cover Touchpad" "libinput Tapping Enabled" "1"
+xinput --set-prop "Microsoft Surface Type Cover Touchpad" "libinput Accel Speed" "0.3"
+
+# xbindkeys
+xbindkeys 
+
+# nitrogen	// exec in i3 conf sometimes does not work
+nitrogen --restore
