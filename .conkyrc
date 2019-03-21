@@ -1,0 +1,63 @@
+--[[
+  Conky config
+
+  Maintainer:
+	- beankuu@gmail.com
+  Ideas:
+	- https://github.com/NoTranslation/Conky-Minimalism	[Format]
+	- 
+]]
+
+conky.config = {
+  -- Conky Settings --
+    background = false,			--default
+    update_interval = 1.0,
+    cpu_avg_samples = 1,
+    net_avg_samples = 2,		--default
+
+  -- Text Settings --
+    font = 'NeoDunggeunmo:size=16',
+    use_xft = true,
+    default_color = '#333333',
+    default_outline_color = '#333333', 
+    default_shade_color = '#333333',
+    override_utf8_locale = true,
+
+  -- Window specifications --
+    alignment = 'top_right',
+    gap_x = 10,
+    gap_y = 10 + 40,			-- 40 for polybar
+    minimum_width = 100,	
+    minimum_height = 100,		--default
+    border_width = 0,
+    stippled_borders = 0,		--default
+    
+    own_window = true,			--default
+    own_window_type = 'override',
+    -- own_window_colour = '#000000',
+    own_window_transparent = true,
+    own_window_argb_visual = true,
+    own_window_class = 'Conky',
+    
+    draw_borders = false,		--default
+    draw_graph_borders = false,
+    draw_outline = false,		--default
+    draw_shades = false,		--default
+ 
+-- Graphics settings --
+    no_buffers = false,
+    double_buffer = true, 
+    extra_newline = false,		--default
+    use_spacer = 'none',		--default
+}
+
+conky.text = [[
+${font size=16}${color CC3300}MDT, Calgary CA
+${font sans-serif:normal:size=32}${color 222222}${time %T}
+${font sans-serif:normal:size=16}${color CC3300}${time %a, %B %d, %Y}
+
+
+${font size=16}${color CC3300}KST, Seoul KR
+${font sans-serif:normal:size=32}${color 222222}${tztime Asia/Seoul %T}
+${font sans-serif:normal:size=16}${color CC3300}${time %a, %B %d, %Y}
+]]

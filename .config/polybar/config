@@ -7,9 +7,12 @@
 ;	- beankuu@gmail.com
 ;
 ; hints from
-;	- https://github.com/unix121/i3wm-themer
-; 	- https://github.com/adi1090x/polybar-themes
-
+;	- https://github.com/unix121/i3wm-themer	[Base]
+; 	- https://github.com/adi1090x/polybar-themes	[Format]
+;	- https://github.com/ntcarlson/dotfiles		[Effects]
+;
+; colour blend from
+;	- https://materialuicolors.co
 
 ;------------------------------------------------
 ;                    GLOBALS                    
@@ -22,35 +25,29 @@
   black		= #000000
 
   background 	= ${xrdb:background:222222}
-  background-alt= #444444
   foreground 	= ${xrdb:foreground:666666}
-  foreground-alt= #CCCCCC
-  
-  acolor	= #546e7a
-  curgent 	= #e53935
-  coccupied 	= #1e88e5
 
   ## Material Colors
 
-  red 		= #e53935
-  pink 		= #d81b60
-  purple	= #8e24aa
-  deep-purple 	= #5e35b1
-  indigo	= #3949ab
-  blue 		= #1e88e5
-  light-blue 	= #039be5
-  cyan 		= #00acc1
-  teal 		= #00897b
-  green 	= #43a047
-  light-green 	= #7cb342
-  lime 		= #c0ca33
-  yellow	= #fdd835
-  amber 	= #ffb300
-  orange	= #fb8c00
-  deep-orange 	= #f4511e
-  brown 	= #6d4c41
-  grey 		= #757575
-  blue-gray 	= #546e7a
+  red 		= #F44336
+  pink 		= #E91E63
+  purple	= #9C27B0
+  deep-purple 	= #673AB7
+  indigo	= #3F51B5
+  blue 		= #2196F3
+  light-blue 	= #03A9F4
+  cyan 		= #00BCD4
+  teal 		= #009688
+  green 	= #4CAF50
+  light-green 	= #8BC34A
+  lime 		= #CDDC39
+  yellow	= #FFEB3B
+  amber 	= #FFC107
+  orange	= #FF9800
+  deep-orange 	= #FF5722
+  brown 	= #795548
+  grey 		= #9E9E9E
+  blue-grey 	= #607D8B
 
 ;------------------------------------------------
 ;                      BAR                    
@@ -86,59 +83,47 @@
   font-5 = "Material Icons:16;2"
 
 ;================================================
-  modules-left = date worldDate1 worldDate2
-  modules-center = 
-  modules-right = volume serverstatus powermenu
+  modules-left = powermenu xwindow 
+  modules-center =
+  modules-right = volume battery serverstatus date
 
 ;------------------------------------------------
 ;                    MODULES                    
 ;------------------------------------------------
-[module/date]
-  type = custom/script
-  exec= date
-  interval = 1
+[module/powermenu]
+  type = custom/text
 
-  format-foreground = ${color.foreground-alt}
-  format-background = ${color.background-alt}
-  format-padding = 1
+  content = 
+  content-padding = 0
+  content-backgroud = ${color.background}
+  content-foreground = ${color.foreground}
+  click-left = $HOME/.config/polybar/togglehide.sh powerbar
 
-[module/worldDate1]
-  type = custom/script
-  exec = TZ=Asia/Seoul date +" KST %H:%M %a"
-  interval = 5
-
-  format-foreground = ${color.foreground}
-  format-background = ${color.background}
-  format-padding = 1
-
-[module/worldDate2]
-  type = custom/script
-  exec = TZ=EST date +" EST %H:%M %a"
-  interval = 5
-  format-foreground = ${color.foreground}
-  format-background = ${color.background}
-  format-padding = 1
+[module/xwindow]
+  type = internal/xwindow
+  label = %{T2}%title:0:30:%%{T-} 
 
 [module/mpd]
-type = internal/mpd
-format-online = ♫ <label-song>
+  type = internal/mpd
+  format-online = ♫ <label-song>
 
-icon-play = ▶
-icon-pause = ▪
+  icon-play = ▶
+  icon-pause = ▪
 
-label-song-maxlen = 25
-label-song-ellipsis = true
+  label-song-maxlen = 25
+  label-song-ellipsis = true
 
 [module/volume]
   type = internal/alsa
   
-  format-volume = <ramp-volume> <label-volume>
-  label-volume = %percentage%%
+  format-volume = <ramp-volume> <label-volume> 
+  label-volume = %percentage:2%%  
+
 
   format-muted-prefix = " "
   label-muted = MUTE
 
-  ramp-volume-0 = 
+  ramp-volume-0 =  
   ramp-volume-1 = ▃
   ramp-volume-2 = ▃
   ramp-volume-3 = ▃
@@ -149,116 +134,108 @@ label-song-ellipsis = true
   ramp-volume-8 = ▆
   ramp-volume-9 = █
 
+[module/battery]
+  type = internal/battery
+  battery = BAT1
+  adapter = ADP1
+
+  format-charging = <animation-charging>
+  format-discharging = <ramp-capacity>
+  format-full = <label-full>
+
+  label-full = 
+
+  ramp-capacity-0 = 
+  ramp-capacity-1 = 
+  ramp-capacity-2 = 
+  ramp-capacity-3 = 
+  ramp-capacity-4 = 
+
+  animation-charging-0 = 
+  animation-charging-1 = 
+  animation-charging-2 = 
+  animation-charging-3 = 
+  animation-charging-4 = 
+  ; Framerate in milliseconds
+  animation-charging-framerate = 750
+
 [module/serverstatus]
   type = custom/script
-  exec = ~/.config/polybar/servercheck.sh
+  exec = $HOME/.config/polybar/servercheck.sh
   interval = 90
 
   format-foreground = #CC6600
   format-background = #272827
 
-[module/ipv4]
-  type = custom/script
-  exec = hostname -i | xargs
-  interval = 3.0
-
-  format-foreground = #00CC00
-  format-background = #272827
-
-[module/wlan]
-  type = internal/network
-  interface = wlp0s20f0u1
-  interval = 3.0
-
-  format-connected = <ramp-signal> <label-connected>
-  format-connected-foreground = #00CC00
-  format-connected-background = #272827
-  format-connected-padding = 1
-  label-connected = %essid%
-
-  format-disconnected = <label-disconnected>
-  format-disconnected-foreground = #CC0000
-  format-disconnected-background = #272827
-  format-disconnected-padding = 1
-  label-disconnected = No Connection
-
-  ramp-signal-0 = ▂
-  ramp-signal-1 = ▃
-  ramp-signal-2 = ▅
-  ramp-signal-3 = ▆
-  ramp-signal-4 = █
-  ramp-signal-foreground = #00CC00
-  ramp-signal-background = #272827
-
-##########################################RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
-[module/powermenu]
-  type = custom/text
-
-  content = 
-  content-padding = 2
-  content-backgroud = ${color.acolor}
-  content-foreground = ${color.foreground}
-  click-left = poweroff
-  click-right = poweroff
-
+[module/date]
+  type = internal/date
+  interval = 1.0
+  
+  date = %H:%M:%S
+  date-alt = %Y-%m-%d%
+  label = %date:10%
 
 #-----------------------------------------------------------------------------#
 #---------------------------- Side panel config- -----------------------------#
 #-----------------------------------------------------------------------------#
-[bar/panel]
-monitor = ${env:MONITOR:eDP1}
-enable-ipc = true
-override-redirect = true
-bottom = false
+[bar/powerbar]
+  enable-ipc = true
+  override-redirect = true
+  bottom = false
 
-height = 1036 # 1080p - bar height - 2*border width
-width = 25%
-offset-y = 40
-offset-x = 75%
-fixed-center = true
-spacing = 1
-module-margin-left = 2
-module-margin-right = 2
+  height = 40
+  width = 13%
+  offset-y = 40
+  offset-x = 0
+  fixed-center = true
+  spacing = 0
+  module-margin-left = 2
+  module-margin-right = 2
 
-border-size = 2
-#border-color = ${colors.primary}
+  border-size = 0
+  #border-color = ${colors.primary}
 
-background = ${color.background}
-foreground = ${color.foreground}
+  background = ${color.background}
+  foreground = ${color.foreground}
 
-font-0 = "Font Awesome 5 Free:style=Solid:pixelsize=16;-490"
-font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=16;-490"
-font-2 = "Font Awesome 5 Brands:pixelsize=16;-490"
+  font-0 = "Font Awesome 5 Free:style=Solid:pixelsize=16;"
+  font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=16;"
+  font-2 = "Font Awesome 5 Brands:pixelsize=16;"
 
-modules-center = lock exit hibernate reboot shutdown screenshot 
+  modules-center = lock exit hibernate reboot shutdown 
+
+[bar/timebar]
+  enable-ipc = true
+  override-redirect = true
+  bottom = false
+  
+  height = 40
+  width = 10%
+  offset-y = 40
 
 #------------------------------ Option modules -------------------------------#
 [module/exit]
-type = custom/text
-content = "  "
-click-left = i3-msg exit
+  type = custom/text
+  content = "  "
+  click-left = i3-msg exit
 
 [module/hibernate]
-type = custom/text
-content = "  "
-click-left = ~/.config/i3/scripts/hibernate
+  type = custom/text
+  content = "  "
+  click-left = ~/.config/i3/scripts/hibernate
 
 [module/shutdown]
-type = custom/text
-content = "  "
-click-left = shutdown now
+  type = custom/text
+  content = "  "
+  click-left = shutdown now
 
 [module/reboot]
-type = custom/text
-content = "  "
-click-left = reboot
+  type = custom/text
+  content = "  "
+  click-left = reboot
 
 [module/lock]
-type = custom/text
-content = "  "
-click-left = ~/.config/i3/scripts/betterlockscreen -l blur
+  type = custom/text
+  content = "  "
+  click-left = ~/.config/i3/scripts/betterlockscreen -l blur
 
-[module/screenshot]
-type = custom/text
-content = "  "
-click-left = scrot -e 'feh $f -x' --delay 1⇧

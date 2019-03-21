@@ -14,6 +14,7 @@
 #                     GLOBALS    
 #==================================================
 set $mod Mod1
+set $sup Mod4
 
 new_window pixel 1
 new_float normal
@@ -246,11 +247,15 @@ mode "$mode_gaps_outer" {
 #                   keybind apps    
 #==================================================
 
-# start program launcher
+# GUI explorer
+bindsym $sup+e exec nautils
+
+# Start program launcher
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun -show-icons
 
 # Screenshot
-bindsym Shift+Print exec gnome-screenshot -i
+bindsym $sup+Shift+s exec gnome-screenshot -i
+bindsym Shift+Print exec gnome-screenshot
 bindsym Print exec "scrot '%Y-%m-%d-%s_screenshot_$wx%h.jpg' -e 'mv $f ~/picture/screenshots'"
 
 # Screen brightness
@@ -265,9 +270,8 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 
 # Open specific applications in floating mode
 ## A
-#for_window [title="alsamixer"] floating enable border pixel 1
 ## B
-
+for_window [class="Blueman-manager"] floating enable border enable
 ## C
 for_window [class="Cantata"] floating enable
 ## D
@@ -276,7 +280,7 @@ for_window [class="Cantata"] floating enable
 for_window [title="File Transfer*"] floating enable
 ## G
 for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="*gnome*Weather*"] floating enable
+for_window [class="Org.gnome.Weather"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [class="Gpick"] floating enable
 ## H
@@ -287,14 +291,14 @@ for_window [class="Gpick"] floating enable
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 ## M
-for_window [title="MuseScore: Play Panel"] floating enable
+for_window [title="MuseScore: Play Panel"] floating enable border normal
 ## N
-for_window [class="nautilus"] floating enable sticky enable border normal
+for_window [class="Org.gnome.Nautilus"] floating enable sticky enable border 1
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 ## O
 #for_window [class="Oblogout"] fullscreen enable
 ## P
-for_window [class="Pavucontrol"] floating enable
+for_window [class="Pavucontrol"] floating enable border normal
 ## Q
 #for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
@@ -310,7 +314,8 @@ for_window [class="Skype"] floating enable border normal
 ## X
 ## Y
 ## Z
-
+## Special
+for_window [window_role="pop-up"] floating enable
 
 #==================================================
 #                 exec on i3 start    

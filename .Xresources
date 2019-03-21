@@ -1,0 +1,40 @@
+! Global Modifiers
+*dpi : 144
+
+*background:                      #222222
+*foreground:                      #666666
+*cursorColor:                     #005555
+
+*color0:                          #222222
+*color1:                          #BBBBBB
+*color2:                          #777777
+*color3:                          #454545
+*color4:                          #009999
+*color5:                          #434343
+*color6:                          #00CCCC
+*color7:                          #EEEEEE
+*color8:                          #282828
+*color9:                          #CCCCCC
+*color10:                         #8D8F8D
+*color11:                         #505050
+*color12:                         #999999
+*color13:                         #484848
+*color14:                         #00DDDD
+*color15:                         #E8E8E8
+
+! URxvt
+URxvt.font: xft:NeoDunggeunmo:size=16,xft:NanumGothicCoding Semibold:size=16;1,xft:Source Code Pro Semibold:size=16;1
+URxvt.Depth:                      32
+URxvt*scrollBar:                  false
+URxvt*mouseWheelScrollPage:       false
+URxvt*cursorBlink:                true
+URxvt*saveLines:                  5000
+URxvt*internalBorder: 5
+URxvt*geometry: 70x19
+URxvt.inputMethod: ibus
+URxvt.preeditType: OverTheSpot
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+!URxvt.perl-ext-common: font-size
+URxvt*iso14775:False
