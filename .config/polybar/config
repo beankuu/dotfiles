@@ -15,45 +15,20 @@
 ;	- https://materialuicolors.co
 
 ;------------------------------------------------
-;                    GLOBALS                    
+;                 0.GLOBALS                    
 ;------------------------------------------------
 
 [color]
 
   trans		= #00000000
-  white		= #FFFFFF
-  black		= #000000
-
   background 	= ${xrdb:background:222222}
   foreground 	= ${xrdb:foreground:666666}
 
-  ## Material Colors
-
-  red 		= #F44336
-  pink 		= #E91E63
-  purple	= #9C27B0
-  deep-purple 	= #673AB7
-  indigo	= #3F51B5
-  blue 		= #2196F3
-  light-blue 	= #03A9F4
-  cyan 		= #00BCD4
-  teal 		= #009688
-  green 	= #4CAF50
-  light-green 	= #8BC34A
-  lime 		= #CDDC39
-  yellow	= #FFEB3B
-  amber 	= #FFC107
-  orange	= #FF9800
-  deep-orange 	= #FF5722
-  brown 	= #795548
-  grey 		= #9E9E9E
-  blue-grey 	= #607D8B
-
 ;------------------------------------------------
-;                      BAR                    
+;                 1.TOP BAR                    
 ;------------------------------------------------
 
-[bar/i3bar]
+[bar/topbar]
   width = 100%
   height = 40 
   dpi = 144
@@ -88,7 +63,7 @@
   modules-right = volume battery serverstatus date
 
 ;------------------------------------------------
-;                    MODULES                    
+;                 1-1.MODULES                    
 ;------------------------------------------------
 [module/powermenu]
   type = custom/text
@@ -176,7 +151,7 @@
   label = %date:10%
 
 #-----------------------------------------------------------------------------#
-#---------------------------- Side panel config- -----------------------------#
+#                           2.Side panel config                               #
 #-----------------------------------------------------------------------------#
 [bar/powerbar]
   enable-ipc = true
@@ -213,7 +188,9 @@
   width = 10%
   offset-y = 40
 
-#------------------------------ Option modules -------------------------------#
+#-----------------------------------------------------------------------------#
+#                           2-1.Option modules                                #
+#-----------------------------------------------------------------------------#
 [module/exit]
   type = custom/text
   content = "  "
@@ -238,4 +215,6 @@
   type = custom/text
   content = "  "
   click-left = ~/.config/i3/scripts/betterlockscreen -l blur
+
+
 

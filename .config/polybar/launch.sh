@@ -4,8 +4,8 @@
 pkill polybar
 sleep 0.1;
 
-# main bar
-polybar i3bar &
+# main(top) bar
+polybar topbar &
 # sub bar
 polybar powerbar &
 
