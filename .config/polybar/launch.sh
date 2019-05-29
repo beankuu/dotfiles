@@ -2,16 +2,15 @@
 
 # killall polybar
 pkill polybar
-sleep 0.1;
+while prep -x polybar >/dev/null; do sleep 0.1; done
 
 # main(top) bar
 polybar topbar &
-# sub bar
+# sub bars
 polybar powerbar &
 
-sleep 0.5;
 # hide sub bars
-ID=$(xdotool search --name "powerbar")
+until ID=$(xdotool search --name "powerbar"); do sleep 0.1; done
 xdotool windowunmap $ID
 
 

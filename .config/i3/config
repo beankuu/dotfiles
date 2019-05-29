@@ -248,15 +248,20 @@ mode "$mode_gaps_outer" {
 #==================================================
 
 # GUI explorer
-bindsym $sup+e exec nautils
+bindsym $sup+e exec nemo
 
-# Start program launcher
+# launch rofi [Program launcher]
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun -show-icons
 
 # Screenshot
 bindsym $sup+Shift+s exec gnome-screenshot -i
 bindsym Shift+Print exec gnome-screenshot
 bindsym Print exec "scrot '%Y-%m-%d-%s_screenshot_$wx%h.jpg' -e 'mv $f ~/picture/screenshots'"
+
+# Volume
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 2%+"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master 2%-"
+bindsym XF86AudioMute exec "amixer -q sset Master toggle"
 
 # Screen brightness
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
@@ -291,9 +296,8 @@ for_window [class="Gpick"] floating enable
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 ## M
-for_window [title="MuseScore: Play Panel"] floating enable border normal
 ## N
-for_window [class="Org.gnome.Nautilus"] floating enable sticky enable border 1
+for_window [class="Nemo"] floating enable sticky enable border normal
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 ## O
 #for_window [class="Oblogout"] fullscreen enable
@@ -323,7 +327,8 @@ for_window [window_role="pop-up"] floating enable
 
 # Autostart applications
 #exec xrandr --dpi 144
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id nitrogen --restore; sleep 1; 
+exec --no-startup-id pkill compton && sleep 1 && compton -b
 exec --no-startup-id /usr/bin/inidicator-kdeconnect
 exec --no-startup-id conky -c $HOME/.conkyrc
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
