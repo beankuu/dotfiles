@@ -11,30 +11,32 @@
 !   - https://materialuicolors.co   [colour scheme]
 
 ! 1. Global Modifiers
-  *background:                    #222222
-  *foreground:                    #666666
+  *background:                    #28262d
+  *foreground:                    #8daac6
   *cursorColor:                   #005555
 !!1 color 0~7: normal colors
-  *color0:                        #222222
-  *color1:                        #BBBBBB
-  *color2:                        #777777
-  *color3:                        #454545
-  *color4:                        #009999
-  *color5:                        #434343
-  *color6:                        #00CCCC
-  *color7:                        #EEEEEE
+  *color0:                        #28262d
+  *color1:                        #3c459e
+  *color2:                        #678dd5
+  *color3:                        #c57085
+  *color4:                        #d3d3d7
+  *color5:                        #699158
+  *color6:                        #5d3964
+  *color7:                        #145ebe
 !!! color 8~15: brighter counterparts
-  *color8:                        #282828
-  *color9:                        #CCCCCC
-  *color10:                       #8D8F8D
-  *color11:                       #505050
-  *color12:                       #999999
-  *color13:                       #484848
-  *color14:                       #00DDDD
-  *color15:                       #E8E8E8
+  *color8:                        #8daac6
+  *color9:                        #6d7ca8
+  *color10:                       #90a7d2
+  *color11:                       #dca9b5
+  *color12:                       #cecbcd
+  *color13:                       #abb087
+  *color14:                       #9d88a2
+  *color15:                       #729ed8
 
 ! 2. URxvt
-  URxvt.font: xft:NeoDunggeunmo:size=16,xft:NanumGothicCoding Semibold:size=16;1,xft:Source Code Pro Semibold:size=16;1
+!  URxvt.font: xft:NeoDunggeunmo:size=16,xft:NanumGothicCoding-Bold:size=14,xft:Source Code Pro Semibold:size=14
+  URxvt.font: xft:NanumGothicCoding-ExtraBold:size=14,xft:Source Code Pro Semibold:size=14
+
   URxvt.Depth:                    32
   URxvt*scrollBar:                false
   URxvt*mouseWheelScrollPage:     false

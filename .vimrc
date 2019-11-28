@@ -4,57 +4,70 @@
 " Maintainer
 "   - beankuu@gmail.com
 
-" 0.Vundle
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-    Plugin 'VundleVim/Vundle.vim'
+" 0.vim-plug
+call plug#begin('~/.vim/plugged')
     "Visual
-    Plugin 'itchyny/lightline.vim'          "Statusline plugin
-    Plugin 'bling/vim-bufferline'           "Command line Buffer
-    Plugin 'flazz/vim-colorschemes'         "ColorScneme
-    Plugin 'scrooloose/nerdtree'            "File Browser [{Space}]
-    Plugin 'majutsushi/tagbar'              "File Structure overview [{F8}]
-    Plugin 'iamcco/markdown-preview.vim'    "Markdown Preview [:MarkdownPreview]
-    Plugin 'xuhdev/vim-latex-live-preview'  "LaTex Preview
+    Plug 'itchyny/lightline.vim'          "Statusline plugin
+    Plug 'bling/vim-bufferline'           "Command line Buffer
+    Plug 'flazz/vim-colorschemes'         "ColorScneme
+    Plug 'scrooloose/nerdtree'            "File Browser [{Space}]
+    Plug 'majutsushi/tagbar'              "File Structure overview [{F8}]
+   
+   "Documents 
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'}   "Markdown Preview [:MarkdownPreview]
+    Plug 'xuhdev/vim-latex-live-preview'  "LaTex Preview
+    Plug 'shime/vim-livedown'             "Livedown Markdown Plugin
+    Plug 'vim-pandoc/vim-pandoc'          "pandoc document integration
+
     "Helper
-    Plugin 'plasticboy/vim-markdown'        "Markdown Syntax Highlight
-    Plugin 'lervag/vimtex'                  "LaTeX support
-    Plugin 'w0rp/ale'                       "Linter
-    Plugin 'airblade/vim-gitgutter'         "Git diff
+    Plug 'plasticboy/vim-markdown'        "Markdown Syntax Highlight
+    Plug 'vim-pandoc/vim-pandoc-syntax'   "pandoc syntax support
+    Plug 'lervag/vimtex'                  "LaTeX support
+    Plug 'w0rp/ale'                       "Linter
+    Plug 'airblade/vim-gitgutter'         "Git diff
+    Plug 'liuchenxu/vim-clap'             "interactive finder and dispatcher
+
     "Commands
-    Plugin 'junegunn/fzf'                   "Fuzzy finder
-    Plugin 'Valloric/YouCompleteMe'         "Code Completion [GoToInclude/...]
-    Plugin 'SirVer/ultisnips'               "Snippets [c-s]
-    Plugin 'mattn/emmet-vim'                "Emmet Snippets [c-y]
-    Plugin 'tpope/vim-commentary'           "Commenting [gcc/gc]
-    Plugin 'tpope/vim-fugitive'             "Git Wrapper [Gedit]
-    Plugin 'tpope/vim-surround'             "Surroundings [cs]
-    Plugin 'tpope/vim-repeat'               "Repeat command [.+tab]
-    Plugin 'tommcdo/vim-lion'               "Aligning Text [gl/GL]
-    Plugin 'vimwiki/vimwiki'                "Wiki for Vim [\ww]
-call vundle#end()
-syntax enable
-filetype plugin indent on
+    Plug 'junegunn/fzf'                   "Fuzzy finder
+    if has('nvim')
+        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    else
+        Plug 'Shougo/deoplete.nvim'
+        Plug 'roxma/nvim-yarp'
+        Plug 'roxma/vim-hug-neovim-rpc'
+    endif
+    Plug 'SirVer/ultisnips'               "Snippets [c-s]
+    Plug 'mattn/emmet-vim'                "Emmet Snippets [c-y]
+    Plug 'tpope/vim-commentary'           "Commenting [gcc/gc]
+    Plug 'tpope/vim-fugitive'             "Git Wrapper [Gedit]
+    Plug 'tpope/vim-surround'             "Surroundings [cs]
+    Plug 'tpope/vim-repeat'               "Repeat command [.+tab]
+    Plug 'tommcdo/vim-lion'               "Aligning Text [gl/GL]
+    Plug 'vimwiki/vimwiki'                "Wiki for Vim [\ww]
+call plug#end()
 
 " 1. Basic Settings
-" indent,tab = 4 spaces
-set softtabstop=4   " tab inserts 4 spaces
-set tabstop=4       " show existing tab with 4 spaces width
-set shiftwidth=4    " when indenting with '>', use 4 spaces width
-set expandtab       " On pressing tab, insert 4 spaces
-
+syntax enable
+filetype plugin indent on
 set nu              "number at left
 set hlsearch        "highlight search
 set encoding=utf-8  "force encoding to utf-8
 
 
-" 2. Plugin Settings
+"# indent,tab = 4 spaces
+set softtabstop=4   " tab inserts 4 spaces
+set tabstop=4       " show existing tab with 4 spaces width
+set shiftwidth=4    " when indenting with '>', use 4 spaces width
+set expandtab       " On pressing tab, insert 4 spaces
 
-" vim-colorschemes
-colorscheme material
+" 2. Plug Settings
 
-" NerdTree
+"# vim-colorschemes
+colorscheme OceanicNext
+"colorscheme Atelier_SeasideLight
+"colorscheme antares
+
+"# NerdTree
 "" Starting NERDTree by pressing <SPACE>
 let NERDTreeMapActivateNode = '<SPACE>' 
 "" Open NERDTree if vim'ed directory
@@ -85,3 +98,7 @@ nmap <F8> :TagbarToggle<CR>
 " ultisnips
 "" change TAB(default) into c-s, prevent collision from YouCompleteMe
 let g:UltiSnipsExpandTrigger="<c-s>"
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+

@@ -1,0 +1,67 @@
+#======================================
+#
+#          xbindkeys CONFIG
+#
+#--------------------------------------
+# maintainer
+#   - beankuu@gmail.com
+#
+# hints from 
+#   - https://github.com/pschmitt/xbindkeys-config
+#--------------------------------------
+# Modifiers
+# - Control
+# - Shift
+# - Mod1 (Alt)
+# - Mod2 (NumLock)
+# - Mod3 (CapsLock)
+# - Mod4 (Sup)
+# - Mod5 (Scroll)
+# - Print
+#--------------------------------------
+# # Remark
+# "command"
+# m:xxx + c:xxx
+# Shift+...
+#======================================
+
+##########
+# 1. System Basics
+##########
+
+# Volume(Up)
+"amixer -q sset Master 2%+ unmute"
+    XF86AudioRaiseVolume
+# Volume(Down)
+"amixer -q sset Master 2%- unmute"
+    XF86AudioLowerVolume
+# Volume(Mute)
+"amixer -q sset Master toggle"
+    XF86AudioMute
+
+# Brightness(Up)
+"xbacklight -inc 10"
+    XF86MonBrightnessUp
+# Brightness(Down)
+"xbacklight -dec 10"
+    XF86MonBrightnessDown
+
+##########
+# 2. Programs
+##########
+
+# Program Launcher
+"rofi -modi drun -show drun -show-icons -theme oxide"
+    Mod1 + d
+
+# Screenshot
+"gnome-screenshot -i"
+    Mod4 + Print
+# Screenshot(quick)
+"scrot -o -s '/tmp/quickclip.png' -e 'xclip -selection c -t image/png < $f'"
+    Shift + Mod4 + s
+
+# GUIU explorer
+"nemo"
+    Mod4 + e
+

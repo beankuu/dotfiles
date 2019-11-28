@@ -1,17 +1,26 @@
 #! /bin/bash
 
+# gnome-keyring
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
 # ibus
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -drx
 
-# xinput
-xinput --set-prop "Microsoft Surface Type Cover Touchpad" "libinput Tapping Enabled" "1"
-xinput --set-prop "Microsoft Surface Type Cover Touchpad" "libinput Accel Speed" "0.3"
+# nitrogen
+nitrogen --restore
 
 # xbindkeys
 xbindkeys 
 
-# nitrogen	// exec in i3 conf sometimes does not work
-nitrogen --restore
+# screensaver
+xset s 1800 1800
+
+# xinput (Thinkpad)
+xinput set-prop 'Elan TrackPoint' 'libinput Accel Speed' -0.4
+xinput set-prop 'Elan Touchpad' 'Synaptics Two-Finger Scrolling' 1, 1
+xinput set-prop 'Elan Touchpad' 'Synaptics Tap Action' 1, 0, 0, 0, 0, 0, 0
+xinput set-prop 'Elan Touchpad' 'Synaptics Palm Detection' 1

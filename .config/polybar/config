@@ -25,7 +25,7 @@
 ;------------------------------------------------
 ;                 1.TOP BAR                    
 ;------------------------------------------------
-
+;mainbar
 [bar/topbar]
   width = 100%
   height = 32 
@@ -50,13 +50,13 @@
   font-0 = "NeoDunggeunmo:size=16;1"
   font-1 = "Source Code Pro Semibold:size=16;1"
   font-2 = "Font Awesome 5 Free:style=Solid:size=16;1"
-  font-3 = "Font Awesome 5 Brands:size=16;1"
+  font-3 = "siji:size=16;1"
   font-4 = "Fantasque Sans Mono:16;2"
   font-5 = "Material Icons:16;2"
 
 ;================================================
-  modules-left = powermenu xwindow 
-  modules-center =
+  modules-left = powermenu xwindow
+  modules-center = cmus
   modules-right = volume battery network date
 
 ;------------------------------------------------
@@ -76,15 +76,16 @@
   type = internal/xwindow
   label = %{T2}%title:0:30:%%{T-} 
 
-[module/mpd]
-  type = internal/mpd
-  format-online = ♫ <label-song>
+[module/cmus]
+  type = custom/script
+  exec = cmus-remote -C "format_print %f" | sed 's/.*\///g'
+  exec-if = pgrep -x cmus
+  interval = 1
 
-  icon-play     = ▶
-  icon-pause    = ▪
-
-  label-song-maxlen = 25
-  label-song-ellipsis = true
+  click-left = cmus-remote --pause
+  
+  format = <label>
+  label = %output:40:40%
 
 [module/volume]
   type = internal/alsa
@@ -113,8 +114,8 @@
   ;adapter   = ADP1
   full-at = 99
 
-  format-charging       = <animation-charging> <label-charging>
-  format-discharging    = <ramp-capacity> <label-discharging>
+  format-charging       = <animation-charging><label-charging>
+  format-discharging    = <ramp-capacity><label-discharging>
   format-full           = <label-full>
 
   label-charging = %percentage:3%%
@@ -141,7 +142,7 @@
 
   format-connected              = <ramp-signal> <label-connected>
   ;label-connected               = %essid%
-  label-connected               = %downspeed:5%
+  label-connected               = %downspeed:8%
   label-connected-foreground    = #eefafafa
 
   format-disconnected           = <label-disconnected>
@@ -164,16 +165,6 @@
   animation-packetloss-1-foreground = #000000
   animation-packetloss-framerate = 500
 
-;deprecated  
-[module/serverstatus]
-  type = custom/script
-  exec = $HOME/.config/polybar/servercheck.sh
-  interval = 90
-
-  format-foreground = #CC6600
-  format-background = #272827
-
-
 [module/date]
   type = internal/date
   interval = 1.0
@@ -182,17 +173,19 @@
   date-alt  = %Y-%m-%d%
   label     = %date:10%
 
+
 #-----------------------------------------------------------------------------#
 #                           2.Side panel config                               #
 #-----------------------------------------------------------------------------#
+;subbar
 [bar/powerbar]
   enable-ipc = true
   override-redirect = true
   bottom = false
 
-  height = 32
-  width = 340
-  offset-y = 32
+  height = 36
+  width = 260
+  offset-y = 36
   offset-x = 0
   fixed-center = true
   spacing = 0
@@ -209,7 +202,7 @@
   font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=16;"
   font-2 = "Font Awesome 5 Brands:pixelsize=16;"
 
-  modules-center = lock exit hibernate reboot shutdown 
+  modules-center = lock exit reboot shutdown 
 
 [bar/timebar]
   enable-ipc = true
@@ -228,11 +221,6 @@
   content = "  "
   click-left = i3-msg exit
 
-[module/hibernate]
-  type = custom/text
-  content = "  "
-  click-left = ~/.config/i3/scripts/hibernate
-
 [module/shutdown]
   type = custom/text
   content = "  "
@@ -246,7 +234,7 @@
 [module/lock]
   type = custom/text
   content = "  "
-  click-left = ~/.config/i3/scripts/betterlockscreen -l blur
+  click-left = i3lock -c 000000
 
 
 

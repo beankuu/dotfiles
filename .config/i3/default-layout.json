@@ -14,8 +14,7 @@
     "swallows": [
        {
         "class": "^URxvt$",
-        "instance": "init_1",
-        "transient_for": "^$"
+        "instance": "init_1"
        }
     ],
     "type": "con"
@@ -44,8 +43,7 @@
             "swallows": [
                {
                 "class": "^URxvt$",
-                "instance": "init_2",
-                "transient_for": "^$"
+                "instance": "init_2"
                }
             ],
             "type": "con"
@@ -65,8 +63,7 @@
             "swallows": [
                {
                 "class": "^URxvt$",
-                "instance": "init_3",
-                "transient_for": "^$"
+                "instance": "init_3"
                }
             ],
             "type": "con"

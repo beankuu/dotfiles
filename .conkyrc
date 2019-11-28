@@ -16,19 +16,19 @@ conky.config = {
     net_avg_samples = 2,		--default
 
   -- Text Settings --
-    font = 'NeoDunggeunmo:size=16',
     use_xft = true,
+    font = 'NeoDunggeunmo:size=16',
     default_color = '#333333',
     default_outline_color = '#333333', 
     default_shade_color = '#333333',
     override_utf8_locale = true,
 
   -- Window specifications --
-    alignment = 'top_right',
+    alignment = 'top_left',
     gap_x = 10,
     gap_y = 10 + 40,			-- 40 for polybar
-    minimum_width = 100,	
-    minimum_height = 100,		--default
+    minimum_width = 10,	
+    minimum_height = 10,		--default
     border_width = 0,
     stippled_borders = 0,		--default
     
@@ -52,12 +52,12 @@ conky.config = {
 }
 
 conky.text = [[
-${font size=16}${color CC3300}MDT, Calgary CA
-${font sans-serif:normal:size=32}${color 222222}${time %T}
-${font sans-serif:normal:size=16}${color CC3300}${time %a, %B %d, %Y}
+${offset 20}${font NeoDunggeunmo:size=16}${color CC3300}MDT, Calgary CA
+${offset 20}${font NeoDunggeunmo:size=32}${color 222222}${time %T}
+${offset 20}${voffset -20}${font NeoDunggeunmo:size=16}${color CC3300}${time %a, %B %d, %Y}
 
-
-${font size=16}${color CC3300}KST, Seoul KR
-${font sans-serif:normal:size=32}${color 222222}${tztime Asia/Seoul %T}
-${font sans-serif:normal:size=16}${color CC3300}${tztime Asia/Seoul %a, %B %d, %Y}
+${voffset -132}
+${offset 1720}${font NeoDunggeunmo:size=16}${color CC3300}KST, Seoul KR
+${offset 1720}${font NeoDunggeunmo:size=32}${color 222222}${tztime Asia/Seoul %T}
+${offset 1720}${voffset -20}${font NeoDunggeunmo:size=16}${color CC3300}${tztime Asia/Seoul %a, %B %d, %Y}
 ]]
