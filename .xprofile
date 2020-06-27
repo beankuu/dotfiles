@@ -1,26 +1,71 @@
 #! /bin/bash
 
-# gnome-keyring
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-export SSH_AUTH_SOCK
+#========================================
+# xprofile CONFIGURATION
+#========================================
+# Maintainer
+#   - beankuu@gmail.com [https://github.com/beankuu/dotfiles]
+# Inspired by
+#   - 
+# -----------------------------
+# Content
+# 1. Global settings
+# 2. Device specific
+#========================================
 
-# ibus
+
+# -----------------------------
+# 1. Global settings
+# -----------------------------
+
+# gnome-keyring
+if test -f "/usr/bin/gnome-keyring-daemon"; then
+  eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+  export SSH_AUTH_SOCK
+fi
+
+# keyboard multi-language support (ibus)
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
-ibus-daemon -drx
+if test ibus-daemon; then
+  ibus-daemon -drx
+fi
 
-# nitrogen
-nitrogen --restore
+# udiskie(device auto mount)
+if type udiskie; then
+  udiskie &
+fi
+
+# nitrogen(wallpaper)
+if type nitrogen; then
+  nitrogen --restore
+fi
 
 # xbindkeys
-xbindkeys 
+if type xbindkeys; then
+  xbindkeys 
+fi
 
 # screensaver
-xset s 1800 1800
+if type xset; then
+  xset -dpms
+  xset s 1800 1800
+fi
+
+# NO BEEP SOUND
+if type xset; then
+  xset b off
+fi
+
+# -----------------------------
+# 2. Device specific
+# -----------------------------
 
 # xinput (Thinkpad)
-xinput set-prop 'Elan TrackPoint' 'libinput Accel Speed' -0.4
-xinput set-prop 'Elan Touchpad' 'Synaptics Two-Finger Scrolling' 1, 1
-xinput set-prop 'Elan Touchpad' 'Synaptics Tap Action' 1, 0, 0, 0, 0, 0, 0
-xinput set-prop 'Elan Touchpad' 'Synaptics Palm Detection' 1
+if type xinput > /dev/null; then
+  xinput set-prop 'Elan TrackPoint' 'libinput Accel Speed' -0.4
+  xinput set-prop 'Elan Touchpad' 'Synaptics Two-Finger Scrolling' 1, 1
+  xinput set-prop 'Elan Touchpad' 'Synaptics Tap Action' 1, 0, 0, 0, 0, 0, 0
+  xinput set-prop 'Elan Touchpad' 'Synaptics Palm Detection' 1
+fi

@@ -9,6 +9,13 @@
 # hints from 
 #   - https://github.com/pschmitt/xbindkeys-config
 #--------------------------------------
+# Content
+# 1. System Basics
+# 2. Programs
+#======================================
+
+#======================================
+#--------------------------------------
 # Modifiers
 # - Control
 # - Shift
@@ -40,15 +47,19 @@
     XF86AudioMute
 
 # Brightness(Up)
-"xbacklight -inc 10"
+"xbacklight -inc 5"
     XF86MonBrightnessUp
 # Brightness(Down)
-"xbacklight -dec 10"
+"xbacklight -dec 5"
     XF86MonBrightnessDown
 
 ##########
 # 2. Programs
 ##########
+
+# Lock
+"betterlockscreen -l blur"
+    Mod1 + l
 
 # Program Launcher
 "rofi -modi drun -show drun -show-icons -theme oxide"

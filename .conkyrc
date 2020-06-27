@@ -3,7 +3,7 @@
 
   Maintainer:
 	- beankuu@gmail.com
-  Ideas:
+  Inspired by:
 	- https://github.com/NoTranslation/Conky-Minimalism	[Format]
 	- 
 ]]
@@ -11,12 +11,13 @@
 conky.config = {
   -- Conky Settings --
     background = false,			--default
-    update_interval = 1.0,
+    update_interval = 1,
     cpu_avg_samples = 1,
     net_avg_samples = 2,		--default
 
   -- Text Settings --
     use_xft = true,
+    xftalpha = 1,
     font = 'NeoDunggeunmo:size=16',
     default_color = '#333333',
     default_outline_color = '#333333', 
@@ -52,12 +53,12 @@ conky.config = {
 }
 
 conky.text = [[
-${offset 20}${font NeoDunggeunmo:size=16}${color CC3300}MDT, Calgary CA
-${offset 20}${font NeoDunggeunmo:size=32}${color 222222}${time %T}
-${offset 20}${voffset -20}${font NeoDunggeunmo:size=16}${color CC3300}${time %a, %B %d, %Y}
+${offset 20}${font NeoDunggeunmo:size=16}${color CC7700}MDT, Calgary CA
+${offset 20}${font NeoDunggeunmo:size=32}${color FFFFFF}${time %T}
+${offset 20}${voffset -20}${font NeoDunggeunmo:size=16}${color CC7700}${time %a, %B %d, %Y}
 
 ${voffset -132}
-${offset 1720}${font NeoDunggeunmo:size=16}${color CC3300}KST, Seoul KR
-${offset 1720}${font NeoDunggeunmo:size=32}${color 222222}${tztime Asia/Seoul %T}
-${offset 1720}${voffset -20}${font NeoDunggeunmo:size=16}${color CC3300}${tztime Asia/Seoul %a, %B %d, %Y}
+${offset 1720}${font NeoDunggeunmo:size=16}${color FFCC00}KST, Seoul KR
+${offset 1720}${font NeoDunggeunmo:size=32}${color FFFFFF}${tztime Asia/Seoul %T}
+${offset 1720}${voffset -20}${font NeoDunggeunmo:size=16}${color FFCC00}${tztime Asia/Seoul %a, %B %d, %Y}
 ]]

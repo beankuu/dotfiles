@@ -11,6 +11,13 @@
 ; 	- https://github.com/adi1090x/polybar-themes	[Format]
 ;	- https://github.com/ntcarlson/dotfiles		    [Effects]
 ;
+;------------------------------------------------
+; Contents
+;   0. GLOBALS
+;   1. TOP BAR
+;   2. Side panels
+;================================================
+
 
 ;------------------------------------------------
 ;                 0.GLOBALS                    
@@ -27,6 +34,7 @@
 ;------------------------------------------------
 ;mainbar
 [bar/topbar]
+  monitor = ${env:MONITOR:}
   width = 100%
   height = 32 
 
@@ -70,7 +78,7 @@
   content-backgroud     = ${color.background}
   content-foreground    = ${color.foreground}
   
-  click-left = $HOME/.config/polybar/togglehide.sh powerbar
+  click-left = $HOME/.config/polybar/scripts/togglehide.sh powerbar topbar $(xdotool getmouselocation --shell | grep WINDOW | sed 's/.*=\(.*\)/\1/') &
 
 [module/xwindow]
   type = internal/xwindow
@@ -175,10 +183,11 @@
 
 
 #-----------------------------------------------------------------------------#
-#                           2.Side panel config                               #
+#                           2.Side panels                                     #
 #-----------------------------------------------------------------------------#
 ;subbar
 [bar/powerbar]
+  monitor = ${env:MONITOR:}
   enable-ipc = true
   override-redirect = true
   bottom = false

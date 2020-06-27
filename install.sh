@@ -2,14 +2,17 @@
 
 #====================
 # install.sh
-# - pull from git server
-# - and copying FROM current dir TO $HOME
+# - rsyncing FROM current dir TO $HOME
 #=====================
 
 # ==========
-# 0. Excluding files
+# 0. precheck & Excluding files
 # ==========
-EXCLUDE=('.git' 'rollback.sh' 'update.sh' 'install.sh' 'README.md')
+if ! type rsync > /dev/null; then
+    echo "rsync not found! terminating..."
+fi
+
+EXCLUDE=('.git' 'img' 'rollback.sh' 'update.sh' 'install.sh' 'README.md')
 
 # ===========
 # 1. confirmation prompt

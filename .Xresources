@@ -12,7 +12,9 @@
 
 ! 1. Global Modifiers
   *background:                    #28262d
+  *backalt:                       #302d38
   *foreground:                    #8daac6
+  *forealt:                       #93bbdd
   *cursorColor:                   #005555
 !!1 color 0~7: normal colors
   *color0:                        #28262d
@@ -33,9 +35,13 @@
   *color14:                       #9d88a2
   *color15:                       #729ed8
 
-! 2. URxvt
+! 2. Xft
+  Xft.hinting: 0
+  Xft.antialias: 1
+
+! 3. URxvt
 !  URxvt.font: xft:NeoDunggeunmo:size=16,xft:NanumGothicCoding-Bold:size=14,xft:Source Code Pro Semibold:size=14
-  URxvt.font: xft:NanumGothicCoding-ExtraBold:size=14,xft:Source Code Pro Semibold:size=14
+  URxvt.font: xft:NanumGothicCoding-ExtraBold:size=14,xft:Source Code Pro Semibold:size=14,xft:Symbola:style=Regular:pixelsize=14
 
   URxvt.Depth:                    32
   URxvt*scrollBar:                false
@@ -47,8 +53,14 @@
   URxvt.preeditType: OverTheSpot
   
   URxvt*iso14775:False
-  URxvt.perl-ext-common: clipboard,font-size
+  URxvt.perl-ext-common: default,clipboard,font-size,matcher
   URxvt.keysym.Shift-Control-C: perl:clipboard:copy
   URxvt.keysym.Shift-Control-V: perl:clipboard:paste
   URxvt.keysym.Control-Up:     font-size:increase
   URxvt.keysym.Control-Down:   font-size:decrease
+  URxvt.url-launcher: /usr/bin/xdg-open
+  URxvt.matcher.button: 1 
+  URxvt.keysym.C-Delete: perl:matcher:last
+  URxvt.keysym.M-Delete: perl:matcher:list
+  URxvt.matcher.rend.0: Uline Bold fg5
+

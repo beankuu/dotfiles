@@ -2,14 +2,17 @@
 
 #====================
 # update.sh
-# - for copying FROM home TO current dir
-# - and then push to git
+# - rsyncing FROM $HOME TO current dir
 #=====================
 
 # ==========
-# 0. Excluding files
+# 0. precheck & Excluding files
 # ==========
-EXCLUDE=('.git' 'rollback.sh' 'update.sh' 'install.sh' 'README.md')
+if ! type rsync > /dev/null; then
+    echo "rsync not found! terminating..."
+fi
+
+EXCLUDE=('.git' 'img' 'rollback.sh' 'update.sh' 'install.sh' 'README.md')
 
 # ===========
 # 1. confirmation prompt

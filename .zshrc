@@ -2,7 +2,29 @@
 # zshrc CONFIGURATION
 #=======================================
 # Maintainer
-# 	- beankuu@gmail.com
+# 	- beankuu@gmail.com [https://github.com/beankuu/dotfiles]
+# Inspired by
+#   - 
+#---------------------------------------
+# Content
+# 1. alias
+# 2. exports
+# 3. extra
+#=======================================
+
+# --------------------
+# 1. Alias
+# --------------------
+
+# lock alias
+alias lock="i3lock -c 000000"
+# ranger
+# alias ranger = ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"
+
+
+# --------------------
+# 2. exports
+# --------------------
 
 # vim as default editor
 export EDITOR=vim
@@ -23,16 +45,17 @@ NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$NPM_PACKAGES/bin:$PATH"
 unset MANPATH
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+#ruby
+export PATH="${HOME}/.gem/ruby/2.7.0/bin:$PATH"
+
 # other local paths
 export PATH="${HOME}/.local/bin:$PATH"
 
 
-# ranger
-# alias ranger = ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"
+# --------------------
+# 3. extra
+# -------------------
 
 # zprezto
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-
-# lock alias
-alias lock="i3lock -c 000000"
 

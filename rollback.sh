@@ -2,13 +2,17 @@
 
 #====================
 # rollback.sh
-# - for copying FROM $HOME/backup-config TO $HOME
+# - for rsyncing FROM $HOME/backup-config TO $HOME
 #=====================
 
 # ==========
 # 0. Excluding files
 # ==========
-EXCLUDE=('.git' 'rollback.sh' 'update.sh' 'install.sh' 'README.md')
+if ! type rsync > /dev/null; then
+    echo "rsync not found! terminating..."
+fi
+
+EXCLUDE=('.git' 'img' 'rollback.sh' 'update.sh' 'install.sh' 'README.md')
 
 # ===========
 # 1. confirmation prompt

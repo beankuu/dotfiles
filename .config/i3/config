@@ -4,10 +4,19 @@
 #
 #==================================================
 # maintainer
-#	- beankuu@gmail.com
+#	- beankuu@gmail.com [https://github.com/beankuu/dotfiles]
 #
-# hints from
+# Inspired by
 #	- https://github.com/unix121/i3wm-themer
+#
+#--------------------------------------------------
+# Contents
+# 0. PRESETS
+# 1. GLOBALS
+# 2. i3-gaps
+# 3. 
+#==================================================
+
 
 #==================================================
 #                     0.PRESETS   
@@ -15,24 +24,26 @@
 set $mod Mod1
 set $sup Mod4
 
-set_from_resource   $background background
-set_from_resource   $foreground foreground
-set_from_resource   $color0     color0
-set_from_resource   $color1     color1
-set_from_resource   $color2     color2
-set_from_resource   $color3     color3
-set_from_resource   $color4     color4
-set_from_resource   $color5     color5
-set_from_resource   $color6     color6
-set_from_resource   $color7     color7
-set_from_resource   $color8     color8
-set_from_resource   $color9     color9
-set_from_resource   $color10    color10
-set_from_resource   $color11    color11
-set_from_resource   $color12    color12
-set_from_resource   $color13    color13
-set_from_resource   $color14    color14
-set_from_resource   $color15    color15
+set_from_resource   $background     background
+set_from_resource   $backalt        backalt
+set_from_resource   $foreground     foreground
+set_from_resource   $forealt        forealt
+set_from_resource   $color0         color0
+set_from_resource   $color1         color1
+set_from_resource   $color2         color2
+set_from_resource   $color3         color3
+set_from_resource   $color4         color4
+set_from_resource   $color5         color5
+set_from_resource   $color6         color6
+set_from_resource   $color7         color7
+set_from_resource   $color8         color8
+set_from_resource   $color9         color9
+set_from_resource   $color10        color10
+set_from_resource   $color11        color11
+set_from_resource   $color12        color12
+set_from_resource   $color13        color13
+set_from_resource   $color14        color14
+set_from_resource   $color15        color15
 
 #==================================================
 #                     1.GLOBALS    
@@ -94,10 +105,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+Return floating toggle
 
 # change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 #bindsym $mod+a focus parent
@@ -206,17 +217,25 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Theme colors
-client.focused          #272827 #272827 #657b83 #272827 #272827
-client.focused_inactive #272827 #272827 #657b83 #272827 #272827
-client.unfocused        #272827 #272827 #657b83 #272827 #272827
-client.urgent           #272827 #272827 #657b83 #272827 #272827
-client.placeholder      #272827 #272827 #657b83 #272827 #272827
+# Theme colors          bar_border      win_border      text            indicator
+client.focused          $foreground     $foreground     $background     $foreground
+client.focused_inactive $backalt        $backalt        $backalt        $backalt
+client.unfocused        $background     $background     $foreground     $background
+client.urgent           $background     $forealt        $background     $forealt
+client.placeholder      $backalt        $backalt        $backalt        $backalt
+client.background       $background
 
-client.background       #272827
+#client.focused          #272827 #272827 #657b83 #272827 #272827
+#client.focused_inactive #272827 #272827 #657b83 #272827 #272827
+#client.unfocused        #272827 #272827 #657b83 #272827 #272827
+#client.urgent           #272827 #272827 #657b83 #272827 #272827
+#client.placeholder      #272827 #272827 #657b83 #272827 #272827
+
+#client.background       #272827
+
 
 #==================================================
-#                      i3-gaps    
+#                      2. i3-gaps    
 #==================================================
 
 gaps inner 10
@@ -278,7 +297,7 @@ for_window [class="Cantata"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [title="Factorio*"] floating enable border normal
 ## G
-for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="Gnome-calculator"] floating enable border pixel 1
 for_window [class="Org.gnome.Weather"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [class="Gpick"] floating enable
@@ -286,13 +305,14 @@ for_window [class="Gpick"] floating enable
 ## I
 ## J
 ## K
+for_window [class="kakaotalk.exe"] floating enable sticky enable border normal
 ## L
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 ## M
 for_window [class="Minecraft*"] floating enable sticky enable border normal
 ## N
-for_window [class="Nemo"] floating enable sticky enable border normal
+for_window [class="Nemo"] floating enable sticky enable border pixel 1
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 ## O
 #for_window [class="Oblogout"] fullscreen enable
@@ -328,7 +348,7 @@ exec --no-startup-id compton -b
 #exec --no-startup-id /usr/bin/inidicator-kdeconnect
 exec --no-startup-id conky -c $HOME/.conkyrc
 exec --no-startup-id dunst
-exec --no-startup-id ~/.config/polybar/launch.sh &
+exec --no-startup-id ~/.config/polybar/scripts/launch.sh &
 
 # Autostart layout
 exec i3-msg 'workspace 1; append_layout ~/.config/i3/default-layout.json'

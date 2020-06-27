@@ -3,8 +3,57 @@
 "=======================================
 " Maintainer
 "   - beankuu@gmail.com
+" Inspired by
+"   - https://github.com/ntcarlson/dotfiles [formatting]
+"
+"---------------------------------------
+" Contents
+" 1. Basic Settings
+" 2. vim-plug
+" 3. vim-plug-settings
+" 4. keymap [empty]
+"---------------------------------------
 
-" 0.vim-plug
+
+" 1. Basic Settings
+syntax enable
+filetype plugin on
+filetype indent on
+set mouse=a
+set autoread
+set wildmenu
+set wildmode=longest,list,full
+set scrolloff=4
+set nu              "number at left
+set hlsearch        "highlight search
+set encoding=utf-8 nobomb  "force encoding to utf-8, no byte-order-mark
+
+"# Indentation
+set softtabstop=4   " tab inserts 4 spaces
+set tabstop=4       " show existing tab with 4 spaces width
+set shiftwidth=4    " when indenting with '>', use 4 spaces width
+set expandtab       " On pressing tab, insert 4 spaces
+set autoindent
+set smartindent
+
+"# longline
+set nowrap
+set linebreak
+set sidescroll=0
+set sidescrolloff=2
+
+"# Fold
+set foldenable
+set foldmethod=syntax
+set foldnestmax=3
+
+
+"# Beep
+set noerrorbells
+set visualbell
+set t_vb=
+
+" 2.vim-plug[PlugInstall, PlugUpdate, PlugClean, PlugUpgrade, PlugStatus, ...]
 call plug#begin('~/.vim/plugged')
     "Visual
     Plug 'itchyny/lightline.vim'          "Statusline plugin
@@ -12,23 +61,26 @@ call plug#begin('~/.vim/plugged')
     Plug 'flazz/vim-colorschemes'         "ColorScneme
     Plug 'scrooloose/nerdtree'            "File Browser [{Space}]
     Plug 'majutsushi/tagbar'              "File Structure overview [{F8}]
+    Plug 'godlygeek/tabular'
    
    "Documents 
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'}   "Markdown Preview [:MarkdownPreview]
-    Plug 'xuhdev/vim-latex-live-preview'  "LaTex Preview
+    Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'}  "LaTex Preview
     Plug 'shime/vim-livedown'             "Livedown Markdown Plugin
-    Plug 'vim-pandoc/vim-pandoc'          "pandoc document integration
+"    Plug 'vim-pandoc/vim-pandoc'          "pandoc document integration
 
     "Helper
     Plug 'plasticboy/vim-markdown'        "Markdown Syntax Highlight
+    Plug 'morereason/vim-markdownfmt'
     Plug 'vim-pandoc/vim-pandoc-syntax'   "pandoc syntax support
     Plug 'lervag/vimtex'                  "LaTeX support
     Plug 'w0rp/ale'                       "Linter
     Plug 'airblade/vim-gitgutter'         "Git diff
-    Plug 'liuchenxu/vim-clap'             "interactive finder and dispatcher
-
+    Plug 'liuchengxu/vim-clap',{'do': ':Clap install-binary!'} "interactive finder and dispatcher
+"    Plug 'junegunn/fzf'                   "Fuzzy finder
+    Plug 'ap/vim-css-color'
+    
     "Commands
-    Plug 'junegunn/fzf'                   "Fuzzy finder
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     else
@@ -46,21 +98,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'vimwiki/vimwiki'                "Wiki for Vim [\ww]
 call plug#end()
 
-" 1. Basic Settings
-syntax enable
-filetype plugin indent on
-set nu              "number at left
-set hlsearch        "highlight search
-set encoding=utf-8  "force encoding to utf-8
 
-
-"# indent,tab = 4 spaces
-set softtabstop=4   " tab inserts 4 spaces
-set tabstop=4       " show existing tab with 4 spaces width
-set shiftwidth=4    " when indenting with '>', use 4 spaces width
-set expandtab       " On pressing tab, insert 4 spaces
-
-" 2. Plug Settings
+" 3. Plug Settings
 
 "# vim-colorschemes
 colorscheme OceanicNext
@@ -68,19 +107,19 @@ colorscheme OceanicNext
 "colorscheme antares
 
 "# NerdTree
-"" Starting NERDTree by pressing <SPACE>
+" Starting NERDTree by pressing <SPACE>
 let NERDTreeMapActivateNode = '<SPACE>' 
-"" Open NERDTree if vim'ed directory
+" Open NERDTree if vim'ed directory
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
-"" NERDTree at left side
+" NERDTree at left side
 let g:NERDTREEWinPos = "Left"
 
-" lightline
-"" always show lightline
+"# lightline
+" always show lightline
 set laststatus=2
-"" lightline config
+" lightline config
 let g:lightline ={
 	\ 'colorscheme': 'wombat',
 	\ 'active': {
@@ -92,13 +131,17 @@ let g:lightline ={
 	\ },
 	\ }
 
-" tagbar
+"# tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" ultisnips
-"" change TAB(default) into c-s, prevent collision from YouCompleteMe
+"# ultisnips
+" change TAB(default) into c-s, prevent collision from YouCompleteMe
 let g:UltiSnipsExpandTrigger="<c-s>"
 
-" deoplete
+"# deoplete
 let g:deoplete#enable_at_startup = 1
+
+" 4. Key Remapping
+" Empty for now!
+
 
