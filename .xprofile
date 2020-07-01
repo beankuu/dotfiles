@@ -19,53 +19,53 @@
 # -----------------------------
 
 # gnome-keyring
-#if test -f "/usr/bin/gnome-keyring-daemon"; then
+if test -f "/usr/bin/gnome-keyring-daemon"; then
   eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
   export SSH_AUTH_SOCK
-#fi
+fi
 
 # keyboard multi-language support (ibus)
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
-#if test ibus-daemon; then
+if test ibus-daemon; then
   ibus-daemon -drx
-#fi
+fi
 
 # udiskie(device auto mount)
-#if type udiskie; then
+if type udiskie; then
   udiskie &
-#fi
+fi
 
 # nitrogen(wallpaper)
-#if type nitrogen; then
+if type nitrogen; then
   nitrogen --restore
-#fi
+fi
 
 # xbindkeys
-#if type xbindkeys; then
+if type xbindkeys; then
   xbindkeys 
-#fi
+fi
 
 # screensaver
-#if type xset; then
+if type xset; then
   xset -dpms
   xset s 1800 1800
-#fi
+fi
 
 # NO BEEP SOUND
-#if type xset; then
+if type xset; then
   xset b off
-#fi
+fi
 
 # -----------------------------
 # 2. Device specific
 # -----------------------------
 
 # xinput (Thinkpad)
-#if type xinput; then
+if type xinput; then
   xinput set-prop 'Elan TrackPoint' 'libinput Accel Speed' -0.4
   xinput set-prop 'Elan Touchpad' 'Synaptics Two-Finger Scrolling' 1, 1
   xinput set-prop 'Elan Touchpad' 'Synaptics Tap Action' 1, 0, 0, 0, 0, 0, 0
   xinput set-prop 'Elan Touchpad' 'Synaptics Palm Detection' 1
-#fi
+fi
