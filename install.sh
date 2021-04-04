@@ -2,62 +2,73 @@
 
 #====================
 # install.sh
-# - rsyncing FROM current dir TO $HOME
+# - cp FROM current dir TO $HOME
+# - using "cp --parents" only available in GNU cp (not in OS X)
 #=====================
 
 # ==========
 # 0. precheck & Excluding files
 # ==========
-if ! type rsync > /dev/null; then
-    echo "rsync not found! terminating..."
-fi
 
-EXCLUDE=('.git' 'img' 'rollback.sh' 'update.sh' 'install.sh' 'README.md')
+scriptpath=$(dirname $0)
+excludes=('.git' 'dotfiles_img.png' 'rollback.sh' 'update-dotfiles.sh' 'install.sh' 'README.md')
 
 # ===========
 # 1. confirmation prompt
 # ==========
-EVERYTHING=false
+install_everything=false
 read -p "Install Everything? [y/n] " -n 1 -r
 echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then EVERYTHING=true; fi
-echo ========================================
+if [[ $REPLY =~ ^[Yy]$ ]]; then install_everything=true; fi
+echo ====================
+
 # ===========
 # 2. backup folder
 # ==========
 echo Creating backup folder in $HOME ..
-BACKUP=$HOME/backup-config
-mkdir -p $BACKUP
-rsync -a 'rollback.sh'  $BACKUP/
+backup_folder=backup_config
+mkdir -p $HOME/$backup_folder
+cp $scriptpath/'rollback.sh'  $HOME/$backup_folder/
 echo Backup @ $HOME/backup-config
-echo ========================================
+echo ====================
 
 # ===========
 # 3. Install file
 # ==========
-FOUND=false
+found=false
 
-for FILE in $(find . -type f); do
-    FOUND=false
-    for EXC in ${EXCLUDE[@]}; do
-        if [[ $FILE == *$EXC* ]]; then FOUND=true; break; fi
+for file in $(find $scriptpath/ -type f); do
+    found=false
+    for exclude in ${excludes[@]}; do
+        if [[ $file == *$exclude* ]]; then found=true; break; fi
     done
-    if [ "$FOUND" != true ]; then
-        FILE=$(echo $FILE | sed 's@^@'"$HOME"'/@g')
-        if [ "$EVERYTHING" != true ]; then 
-            read -p "# copying $FILE from This directory to $HOME [y/n]" -n 1 -r
+    if [ "$found" != true ]; then
+        if [ "$install_everything" != true ]; then 
+            read -p "- copy from $file to $HOME [y/n]" -n 1 -r
             echo
-            if [[ $REPLY =~ ^[Yy]$ ]]; then
-                rsync -aR $FILE $BACKUP; 
-                #rsync -aR $FILE $HOME; 
-            fi
+            if [[ ! $REPLY =~ ^[Yy]$ ]]; then echo "skipping..."; continue; fi
         else
-            echo \# copying $FILE from This directory to $HOME
-            rsync -aR $FILE $BACKUP
-            #rsync -aR $FILE $HOME
+            echo "- copy from $file to $HOME"
         fi
+        # dotfiles to backup_folder
+        #cp --parents $file $backup_folder/
+
+        # $HOME to backup_folder
+        homefile=$HOME/$(echo $file | sed 's@^'"$scriptpath"'/@@g')
+        cp --parents $homefile $HOME/$backup_folder/
+
+        # dotfiles to $HOME
+        cp $file $homefile
+
     fi
 done
-echo ========================================
+echo ====================
 echo Finished installing
-echo ========================================
+echo ====================
+
+echo "- RESULT -"
+echo "$HOME -> $HOME/$backup_folder"
+echo "$(dirname $(readlink -f $0)) -> $HOME"
+echo 
+echo "* backuped files are at $HOME/$backup_folder"
+echo "----------"

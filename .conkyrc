@@ -53,7 +53,7 @@ conky.config = {
 }
 
 conky.text = [[
-${offset 20}${font NeoDunggeunmo:size=16}${color CC7700}MDT, Calgary CA
+${offset 20}${font NeoDunggeunmo:size=16}${color CC7700}MDT, Edmonton CA
 ${offset 20}${font NeoDunggeunmo:size=32}${color FFFFFF}${time %T}
 ${offset 20}${voffset -20}${font NeoDunggeunmo:size=16}${color CC7700}${time %a, %B %d, %Y}
 

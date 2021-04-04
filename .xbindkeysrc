@@ -62,12 +62,18 @@
     Mod1 + l
 
 # Program Launcher
-"rofi -modi drun -show drun -show-icons -theme oxide"
+#"rofi -modi drun -show drun -show-icons -theme oxide"
+"rofi -modi drun -show drun -show-icons -theme sidebar"
     Mod1 + d
+
+#Terminal
+"urxvt"
+    Mod1 + Return 
 
 # Screenshot
 "gnome-screenshot -i"
     Mod4 + Print
+
 # Screenshot(quick)
 "scrot -o -s '/tmp/quickclip.png' -e 'xclip -selection c -t image/png < $f'"
     Shift + Mod4 + s

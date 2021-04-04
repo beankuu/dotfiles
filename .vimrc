@@ -1,4 +1,7 @@
 "=======================================
+
+
+
 " vimrc CONFIGURATION
 "=======================================
 " Maintainer
@@ -14,7 +17,11 @@
 " 4. keymap [empty]
 "---------------------------------------
 
-
+"========================================
+" 0. Prerequisite
+" - pynvim -> for deoplete
+"
+"========================================
 " 1. Basic Settings
 syntax enable
 filetype plugin on
@@ -47,37 +54,40 @@ set foldenable
 set foldmethod=syntax
 set foldnestmax=3
 
-
 "# Beep
 set noerrorbells
 set visualbell
 set t_vb=
 
-" 2.vim-plug[PlugInstall, PlugUpdate, PlugClean, PlugUpgrade, PlugStatus, ...]
+"========================================
+" 2.vim-plug [PlugInstall, PlugUpdate, PlugClean, PlugUpgrade, PlugStatus, ...]
 call plug#begin('~/.vim/plugged')
     "Visual
-    Plug 'itchyny/lightline.vim'          "Statusline plugin
-    Plug 'bling/vim-bufferline'           "Command line Buffer
-    Plug 'flazz/vim-colorschemes'         "ColorScneme
-    Plug 'scrooloose/nerdtree'            "File Browser [{Space}]
-    Plug 'majutsushi/tagbar'              "File Structure overview [{F8}]
-    Plug 'godlygeek/tabular'
+"    Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}		"minimap for vim [{Minimap}{MinimapClose}]
+    Plug 'severin-lemaignan/vim-minimap'   "minimap for vim [Minimap, MinimapClose]
+    Plug 'itchyny/lightline.vim'        "Statusline plugin
+    Plug 'ryanoasis/vim-devicons'	"coloured icons (for vim-bufferline)
+    Plug 'bling/vim-bufferline'     "Command line Buffer
+    Plug 'flazz/vim-colorschemes'       "ColorScneme
+    Plug 'scrooloose/nerdtree'          "File Browser [{Space}]
+    Plug 'majutsushi/tagbar'            "File Structure overview [{F8}], Requires{ctag}
+"    Plug 'godlygeek/tabular'
    
    "Documents 
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'}   "Markdown Preview [:MarkdownPreview]
     Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'}  "LaTex Preview
     Plug 'shime/vim-livedown'             "Livedown Markdown Plugin
-"    Plug 'vim-pandoc/vim-pandoc'          "pandoc document integration
+    Plug 'vim-pandoc/vim-pandoc'          "pandoc document integration
 
     "Helper
     Plug 'plasticboy/vim-markdown'        "Markdown Syntax Highlight
-    Plug 'morereason/vim-markdownfmt'
+    Plug 'moorereason/vim-markdownfmt'
     Plug 'vim-pandoc/vim-pandoc-syntax'   "pandoc syntax support
     Plug 'lervag/vimtex'                  "LaTeX support
     Plug 'w0rp/ale'                       "Linter
     Plug 'airblade/vim-gitgutter'         "Git diff
     Plug 'liuchengxu/vim-clap',{'do': ':Clap install-binary!'} "interactive finder and dispatcher
-"    Plug 'junegunn/fzf'                   "Fuzzy finder
+    Plug 'junegunn/fzf'                   "Fuzzy finder
     Plug 'ap/vim-css-color'
     
     "Commands
@@ -98,8 +108,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'vimwiki/vimwiki'                "Wiki for Vim [\ww]
 call plug#end()
 
-
+"========================================
 " 3. Plug Settings
+
+"# vim-minimap
+let g:minimap_auto_start = 0
 
 "# vim-colorschemes
 colorscheme OceanicNext
