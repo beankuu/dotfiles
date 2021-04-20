@@ -1,0 +1,12 @@
+[module/powermenu]
+type = custom/text
+
+;\uF011
+content               = 
+content-padding       = 0
+content-backgroud     = ${color.background}
+content-foreground    = ${color.foreground}
+ 
+click-left = $POLYBAR_HOME/scripts/togglehide.sh powerbar topbar $(xdotool getmouselocation --shell | grep WINDOW | sed 's/.*=\(.*\)/\1/') &
+;click-left = scripts/getmoduleid.sh powerbar topbar
+;click-left = scripts/togglehide.sh powerbar topbar scripts/getmoduleid.sh

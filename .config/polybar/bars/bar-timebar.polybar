@@ -1,0 +1,8 @@
+[bar/timebar]
+enable-ipc = true
+override-redirect = true
+bottom = false
+  
+height = 40
+width = 10%
+offset-y = 40

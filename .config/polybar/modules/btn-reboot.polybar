@@ -1,0 +1,5 @@
+[module/reboot]
+type = custom/text
+;\uF01E
+content = "  "
+click-left = reboot

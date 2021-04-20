@@ -1,0 +1,11 @@
+[module/cmus]
+type = custom/script
+exec = cmus-remote -C "format_print %f" | sed 's/.*\///g'
+exec-if = pgrep -x cmus
+interval = 1
+
+click-left = cmus-remote --pause
+
+format = <label>
+label = %output:40:40%
+

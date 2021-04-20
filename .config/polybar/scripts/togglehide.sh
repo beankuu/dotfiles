@@ -8,6 +8,10 @@
 #
 # bash, xdotool, xwininfo
 
+# $1 = (TARGET) bar to be hidden
+# $2 = main bar
+# $3 = (TARGET) id of bar to be hidden
+
 #1. Obtain calee's bar index from given barname($2) and id($3)
 SOURCE_BARS=($(xdotool search --name $2))
 

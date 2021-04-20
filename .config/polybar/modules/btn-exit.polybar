@@ -1,0 +1,6 @@
+[module/exit]
+type = custom/text
+;\uFEF5
+content = "  " 
+click-left = i3-msg exit
+

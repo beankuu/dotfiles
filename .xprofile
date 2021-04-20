@@ -28,6 +28,9 @@ fi
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
+
+export POLYBAR_HOME=$HOME/.config/polybar
+
 if test ibus-daemon; then
   ibus-daemon -drx
 fi
@@ -35,11 +38,6 @@ fi
 # udiskie(device auto mount)
 if type udiskie; then
   udiskie &
-fi
-
-# nitrogen(wallpaper)
-if type nitrogen; then
-  nitrogen --restore
 fi
 
 # xbindkeys

@@ -1,19 +1,24 @@
 #!/bin/bash
 
 # 0. Auto config
-BARS=$(grep '\[bar' ~/.config/polybar/config -B 1 | tr -d '\n ' | sed 's/--/\n/g' | sed -n '/^;/p' | sed -e 's/\[bar\//\-/g' -e 's/\]//g' -e 's/;/\n/g')
-MAINBARS=
-SUBBARS=
+#BARS=$(grep '\[bar' ~/.config/polybar/config -B 1 | tr -d '\n ' | sed 's/--/\n/g' | sed -n '/^;/p' | sed -e 's/\[bar\//\-/g' -e 's/\]//g' -e 's/;/\n/g')
+#MAINBARS=
+#SUBBARS=
  ##exclude "exclude-" from bar list
- for bar in $BARS; do
-    if [[ $bar == "mainbar"* ]]; then
-        MAINBARS+=$(echo $bar | sed 's/.*-//g')
-    elif [[ $bar == "subbar"* ]]; then
-        SUBBARS+=$(echo $bar | sed 's/.*-//g')
-    fi
-done
-BARS=( "${MAINBARS[@]}" "${SUBBARS[@]}" )
+# for bar in $BARS; do
+#    if [[ $bar == "mainbar"* ]]; then
+#        MAINBARS+=$(echo $bar | sed 's/.*-//g')
+#    elif [[ $bar == "subbar"* ]]; then
+#        SUBBARS+=$(echo $bar | sed 's/.*-//g')
+#    fi
+#done
 
+# 0. preset [manual]
+MAINBARS=(topbar)
+SUBBARS=(powerbar)
+
+
+BARS=( "${MAINBARS[@]}" "${SUBBARS[@]}" )
 # 1. Killall running polybar
 killall -q polybar
 

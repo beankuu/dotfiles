@@ -1,15 +1,14 @@
-// vim:ts=4:sw=4:et
 {
     "border": "pixel",
     "current_border_width": 2,
     "floating": "auto_off",
     "geometry": {
-       "height": 599,
-       "width": 1060,
+       "height": 562,
+       "width": 890,
        "x": 0,
        "y": 0
     },
-    "name": "rxvt-unicode-256color",
+    "marks": [],
     "percent": 0.5,
     "swallows": [
        {
@@ -19,12 +18,11 @@
     ],
     "type": "con"
 }
-
 {
-    // splitv split container with 2 children
     "border": "pixel",
     "floating": "auto_off",
     "layout": "splitv",
+    "marks": [],
     "percent": 0.5,
     "type": "con",
     "nodes": [
@@ -33,12 +31,12 @@
             "current_border_width": 2,
             "floating": "auto_off",
             "geometry": {
-               "height": 599,
-               "width": 1060,
+               "height": 562,
+               "width": 890,
                "x": 0,
                "y": 0
             },
-            "name": "rxvt-unicode-256color",
+            "marks": [],
             "percent": 0.5,
             "swallows": [
                {
@@ -53,12 +51,12 @@
             "current_border_width": 2,
             "floating": "auto_off",
             "geometry": {
-               "height": 599,
-               "width": 1060,
+               "height": 562,
+               "width": 890,
                "x": 0,
                "y": 0
             },
-            "name": "urxvt",
+            "marks": [],
             "percent": 0.5,
             "swallows": [
                {
@@ -70,4 +68,3 @@
         }
     ]
 }
-

@@ -1,0 +1,5 @@
+[module/lock]
+type = custom/text
+;\uF023
+content = "  "
+click-left = i3lock -c 000000

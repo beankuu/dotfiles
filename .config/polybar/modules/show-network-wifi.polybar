@@ -1,0 +1,30 @@
+[module/network-wifi]
+type      = internal/network
+interface = wlp0s20f3
+
+format-connected              = <ramp-signal> <label-connected>
+;label-connected              = %essid%
+label-connected               = %downspeed:8%
+label-connected-foreground    = #eefafafa
+
+format-disconnected           = <label-disconnected>
+label-disconnected            = not connected
+label-disconnected-foreground = #66ffffff
+
+format-packetloss             = <animation-packetloss> <label-connected>
+label-packetloss              = %essid%
+label-packetloss-foreground   = #eefafafa
+
+;\uF12B
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 =   
+
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+animation-packetloss-framerate = 500
+

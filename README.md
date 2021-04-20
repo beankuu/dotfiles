@@ -1,32 +1,31 @@
 # dotfiles
 
-![screenshot-left](img/splitedimage00.png)
-
-![screenshot-right](img/splitedimage01.png)
+![screenshot](dotfiles_img.png)
 
 ### System
-- ArchLinux, 5.6.15
+- ArchLinux
 - Lenovo TP L390
     - eDP1(laptop) & HDMI2(HDMI)
 
 ### Included config files
+- zshrc
+- vimrc
 - i3-gaps
 - polybar 
 - rofi
-- picom
+- picom(compton)
 - conky
-- zshrc
-- vimrc
 - dunstrc
+- neofetch
 - X11
   - xbindkey
   - Xresources
   - xprofile
 
-### requirement
-- bash
+### install requirement
+- bash, zsh 
 - gnu-coreutils
-- rsync
+- rsync (update-dotfiles.sh)
 
 ### comment
-- background image: Tree of savior(game) official artwork
+- will add screenshot later on...
