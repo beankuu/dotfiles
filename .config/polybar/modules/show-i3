@@ -8,28 +8,28 @@ index-sort = true
 label-mode = %mode%
 label-mode-padding = 2
 ;label-mode-background = #d60027
-label-mode-background = ${color.blue}
+label-mode-background = ${colors.blue}
 
 ;label-focused = %index%
 label-focused = %name%
 ;label-focused-background = #ee333333
-label-focused-background = ${color.cyan}
-label-focused-foreground = ${color.black}
+label-focused-background = ${colors.cyan}
+label-focused-foreground = ${colors.black}
 label-focused-padding = 2
-label-focused-underline = ${color.aqua}
+label-focused-underline = ${colors.blue}
 
 ;label-unfocused = %index%
 label-unfocused = %name%
 label-unfocused-padding = 2
-label-unfocused-underline = ${color.blue}
+label-unfocused-underline = ${colors.blue}
 
 ;label-urgent = %index%!
 label-urgent = %name%!
 ;label-urgent-background = #bd2c40
 label-urgent-padding = 2
-label-urgent-underline = ${color.red}
-label-urgent-background = ${color.red}
-label-urgent-foreground = ${color.white}
+label-urgent-underline = ${colors.red}
+label-urgent-background = ${colors.red}
+label-urgent-foreground = ${colors.white}
 
 ;label-visible = %index%
 label-visible = %name%
@@ -44,10 +44,6 @@ ws-icon-2 = 3;
 ws-icon-3 = 4;
 ws-icon-4 = 5;
 ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 0;
 ;ws-icon-default = 
 
 

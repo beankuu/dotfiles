@@ -1,0 +1,47 @@
+[colors]
+transparent	= #00000000
+background 	= ${xrdb:background:222222}
+backalt 	= ${xrdb:backalt}
+foreground 	= ${xrdb:foreground:666666}
+forealt 	= ${xrdb:forealt}
+
+color0   	= ${xrdb:color0}
+color1   	= ${xrdb:color1}
+color2   	= ${xrdb:color2}
+color3   	= ${xrdb:color3}
+color4   	= ${xrdb:color4}
+color5   	= ${xrdb:color5}
+color6   	= ${xrdb:color6}
+color7   	= ${xrdb:color7}
+color8   	= ${xrdb:color8}
+color9   	= ${xrdb:color9}
+color10   	= ${xrdb:color10}
+color11   	= ${xrdb:color11}
+color12   	= ${xrdb:color12}
+color13   	= ${xrdb:color13}
+color14   	= ${xrdb:color14}
+color15   	= ${xrdb:color15}
+
+black   = #FF111111
+white   = #FFeeeeee
+
+;from https://www.materialui.co/colors
+red         = #f44336
+pink        = #E91E63
+purple      = #9C27B0
+deep-purple = #673AB7
+indigo      = #3F51B5
+blue        = #2196F3
+light-blue  = #03A9F4
+cyan        = #00BCD4
+teal        = #009688
+green       = #4CAF50
+light-green = #8BC34A
+lime        = #CDDC39
+yellow      = #FFEB3B
+orange      = #FFC107
+deep-orange = #FF5722
+brown       = #795548
+grey        = #9E9E9E
+blue-grey   = #607D8B
+

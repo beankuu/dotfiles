@@ -1,0 +1,19 @@
+[module/rofi]
+
+type = custom/text
+
+;content = 
+
+content = 
+
+content-padding = 1
+
+content-background = ${colors.background}
+
+content-foreground = ${colors.foreground}
+
+click-left  = exec rofi -modi drun -show drun -show-icons -columns 2 -lines 9 theme slate.rasi
+
+click-right = exec rofi -modi combi -show combi -show-icons -columns 2 -lines 6 theme slate.rasi
+
+format-underline = #704214

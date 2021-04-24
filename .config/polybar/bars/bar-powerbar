@@ -14,10 +14,10 @@ module-margin-left = 2
 module-margin-right = 2
 
 border-size = 0
-#border-color = ${colors.primary}
+#border-colors.= ${colors..primary}
 
-background = ${color.background}
-foreground = ${color.foreground}
+background = ${colors.background}
+foreground = ${colors.foreground}
 
 ;================================================
 
@@ -37,14 +37,7 @@ modules-center = lock exit reboot shutdown
 
 ;------------------------------------------------
 
-[module/lock]
-include-file = $POLYBAR_HOME/modules/btn-lock.polybar
-
-[module/exit]
-include-file = $POLYBAR_HOME/modules/btn-exit.polybar
-
-[module/reboot]
-include-file = $POLYBAR_HOME/modules/btn-reboot.polybar
-
-[module/shutdown]
-include-file = $POLYBAR_HOME/modules/btn-shutdown.polybar
+include-file = $POLYBAR_HOME/modules/btn-lock
+include-file = $POLYBAR_HOME/modules/btn-exit
+include-file = $POLYBAR_HOME/modules/btn-reboot
+include-file = $POLYBAR_HOME/modules/btn-shutdown

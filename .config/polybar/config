@@ -13,12 +13,8 @@
 ;
 
 ;globals
-[color]
-include-file = $POLYBAR_HOME/modules/global-color.polybar
+include-file = $POLYBAR_HOME/modules/global-colors
 
-[bar/topbar]
-include-file = $POLYBAR_HOME/bars/bar-topbar.polybar
-
-[bar/powerbar]
-include-file = $POLYBAR_HOME/bars/bar-powerbar.polybar
+include-file = $POLYBAR_HOME/bars/bar-topbar
+include-file = $POLYBAR_HOME/bars/bar-powerbar
 
