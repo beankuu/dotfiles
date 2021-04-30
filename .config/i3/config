@@ -43,21 +43,8 @@ set_from_resource   $backalt        backalt
 set_from_resource   $foreground     foreground
 set_from_resource   $forealt        forealt
 
-##====================
-## i3-gaps    
-##====================
-
-gaps inner 10
-gaps outer -4
-
-smart_gaps on
-
-##==================================================
-##                     1.GLOBALS    
-##==================================================
-
 ## ------------------------------
-## Keybinds
+## bindsym (Keybinds)
 ## ------------------------------
 
 ## Open up terminal
@@ -87,15 +74,15 @@ bindsym $mod+q  split toggle
 ## toggle fullscreen mode for the focused container
 bindsym $mod+f  fullscreen toggle
 ## toggle tiling / floating
-bindsym $mod+Shift+Return   floating toggle
+bindsym $mod+t  floating toggle
 ## change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+f  fullscreen toggle
 
 ## move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus move scratchpad
 ## Show the next scratchpad window or hide the focused scratchpad window.
 ## If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
+bindsym $mod+equal scratchpad show
 
 # navigate workspaces next / previous
 bindsym $mod+Tab            workspace next
@@ -142,9 +129,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-## switch to workspace with urgent window automatically
-for_window [urgent=latest] focus
-
 ## switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -174,6 +158,16 @@ bindsym $mod+Shift+c reload
 ## restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+
+##====================
+## i3-gaps    
+##====================
+
+gaps inner 10
+gaps outer -4
+
+smart_gaps on
+
 ## ------------------------------
 ## Settings
 ## ------------------------------
@@ -190,6 +184,8 @@ client.urgent           $background     $forealt        $background     $forealt
 client.placeholder      $backalt        $backalt        $backalt        $backalt
 client.background       $background
 
+## switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
 
 ##==================================================
 ##                floating enabled apps    
