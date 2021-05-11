@@ -1,20 +1,16 @@
-;================================================
-;
-;                POLYBAR CONFIG
-;
-;================================================
-; maintainer
-;	- beankuu@gmail.com
-;
-; hints from
-;	- https://github.com/unix121/i3wm-themer	    [Base]
-; 	- https://github.com/adi1090x/polybar-themes	[Format]
-;	- https://github.com/ntcarlson/dotfiles		    [Effects]
-;
+##================================================
+##
+##                POLYBAR CONFIG
+##
+##================================================
+## maintainer
+##	- beankuu@gmail.com
+##
+## hints from
+##	- https://github.com/unix121/i3wm-themer	    [Base]
+## 	- https://github.com/adi1090x/polybar-themes	[Format]
+##	- https://github.com/ntcarlson/dotfiles		    [Effects]
+##
 
-;globals
-include-file = $POLYBAR_HOME/modules/global-colors
-
-include-file = $POLYBAR_HOME/bars/bar-topbar
-include-file = $POLYBAR_HOME/bars/bar-powerbar
+include-directory = $POLYBAR_HOME/modules
 

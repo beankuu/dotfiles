@@ -1,0 +1,9 @@
+[module/divider1-0]
+type = custom/text
+
+## Hack font
+content-font = 2
+content = 
+
+content-foreground = ${colors.custom1}
+content-background = ${colors.custom-background}

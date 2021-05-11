@@ -40,7 +40,7 @@ for FILE in $(find . -type f); do
             echo
             if [[ $REPLY =~ ^[Yy]$ ]]; then rsync -aR $FILE .; fi
         else
-            echo \# copying $FILE to This directory
+            echo \> copying $FILE to This directory
             rsync -aR $FILE .
         fi
     fi

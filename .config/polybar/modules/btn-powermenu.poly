@@ -1,0 +1,9 @@
+[module/powermenu]
+type = custom/text
+
+# [Material Design Icons] \uF0425
+content-font = 2
+content = 󰐥
+content-padding = 1
+
+click-left = $POLYBAR_HOME/scripts/btn-powermenu.sh

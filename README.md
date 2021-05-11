@@ -1,31 +1,24 @@
 # dotfiles
 
-![screenshot](dotfiles_img.png)
+![screenshot](dotfiles-img.png)
 
 ### System
-- ArchLinux
-- Lenovo TP L390
-    - eDP1(laptop) & HDMI2(HDMI)
+
+- OS: Linux (Arch)
+- Device: Lenovo TP L390
 
 ### Included config files
-- zshrc
-- vimrc
-- i3-gaps
-- polybar 
-- rofi
-- picom(compton)
-- conky
-- dunstrc
-- neofetch
-- X11
-  - xbindkey
-  - Xresources
-  - xprofile
 
-### install requirement
-- bash, zsh 
-- gnu-coreutils
-- rsync (update-dotfiles.sh)
+| # | Terminal(URxvt) | GUI            |
+|---|-----------------|----------------|
+| 1 | zshrc           | i3-gaps        |
+| 2 | vimrc           | polybar        |
+| 3 | Xresources      | rofi           |
+| 4 | Xprofile        | xbindkey       |
+| 5 |                 | conky          |
+| 6 |                 | dunstrc        |
+| 7 |                 | picom(compton) |
 
-### comment
-- will add screenshot later on...
+### Comment
+- Background source: [Nexon Maplestory Official Artwork](https://ssl.nx.com/s2/game/maplestory/renewal/common/media/artwork/artwork_14.jpg)
+

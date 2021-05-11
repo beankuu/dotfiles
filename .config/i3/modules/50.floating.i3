@@ -15,6 +15,7 @@ for_window [class="Blueman-manager"] floating enable
 for_window [title="File Transfer*"] floating enable
 ### G
 for_window [class="Gnome-calculator"] floating enable
+for_window [class="Gnome-screenshot"] floating enable
 for_window [class="Org.gnome.Weather"] floating enable
 for_window [class="GParted"] floating enable
 ### H

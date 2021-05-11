@@ -1,0 +1,46 @@
+[module/battery]
+type      = internal/battery
+# battery   = BAT0
+# adapter   = ADP1
+full-at = 99
+
+## use Material Design Icons
+format-charging-font      = 2
+format-discharging-font   = 2
+format-full-font          = 2
+
+format-charging-background      = ${colors.custom2}
+format-discharging-background   = ${colors.custom2}
+format-full-background          = ${colors.custom2}
+
+format-charging-padding = 1px
+format-discharging-padding = 1px
+format-full-padding = 1px
+
+format-charging       = <animation-charging><label-charging>
+format-discharging    = <ramp-capacity><label-discharging>
+format-full           = <label-full>
+
+label-charging = %percentage:3%%
+
+## [Material Design Icons] \uF0086 ~ \uF008a (+1)
+animation-charging-0 = 󰂆
+animation-charging-1 = 󰂇
+animation-charging-2 = 󰂈
+animation-charging-3 = 󰂉
+animation-charging-4 = 󰂊
+
+## Framerate in milliseconds
+animation-charging-framerate = 1000
+
+label-discharging = %percentage:3%%
+## [Material Design Icons] \uF007a ~ \uf0082(+2)
+ramp-capacity-0 = 󰁺
+ramp-capacity-1 = 󰁼
+ramp-capacity-2 = 󰁾
+ramp-capacity-3 = 󰂀
+ramp-capacity-4 = 󰂂
+
+## [Material Design Icons] \uF008f
+label-full = 󰂏
+

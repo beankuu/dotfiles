@@ -1,67 +1,93 @@
 #!/bin/bash
 
-#========================================
-# xprofile CONFIGURATION
-#========================================
-# Maintainer
-#   - beankuu@gmail.com [https://github.com/beankuu/dotfiles]
-# Inspired by
-#   - 
-# -----------------------------
-# Content
-# 1. Global settings
-# 2. Device specific
-#========================================
+##========================================
+## xprofile CONFIGURATION
+##========================================
+## Maintainer
+##   - beankuu@gmail.com [https://github.com/beankuu/dotfiles]
+## -----------------------------
+## Content
+## 1. Export
+## 2. Global
+## 3. Scripts
+## 4. Device specific
+##========================================
 
 
-# -----------------------------
-# 1. Global settings
-# -----------------------------
+## -----------------------------
+## 1. Export settings
+## -----------------------------
 
-# gnome-keyring
-if test -f "/usr/bin/gnome-keyring-daemon"; then
-  eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-  export SSH_AUTH_SOCK
-fi
-
-# keyboard multi-language support (ibus)
+## keyboard multi-language support (ibus)
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
+## i3
+export I3_HOME=$HOME/.config/i3
+
+## polybar
 export POLYBAR_HOME=$HOME/.config/polybar
 
-if test ibus-daemon; then
-  ibus-daemon -drx
+
+## -----------------------------
+## 2. Global settings
+## -----------------------------
+
+## FUNCTION | check command exists
+function cmdchk(){
+    command -v $1 >/dev/null 2>&1
+}
+
+## gnome-keyring
+if cmdchk gnome-keyring-daemon; then
+  eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+  export SSH_AUTH_SOCK
 fi
 
-# udiskie(device auto mount)
-if type udiskie; then
-  udiskie &
-fi
+## ibus-daemon
+#if cmdchk ibus-daemon; then
+#  ibus-daemon -drx
+#fi
 
-# xbindkeys
-if type xbindkeys; then
-  xbindkeys 
-fi
+## udiskie(device auto mount)
+#if cmdchk udiskie; then
+#  udiskie &
+#fi
 
-# screensaver
-if type xset; then
+## xbindkeys
+#if cmdchk xbindkeys; then
+#  xbindkeys 
+#fi
+
+## screensaver
+if cmdchk xset; then
   xset -dpms
   xset s 1800 1800
 fi
 
-# NO BEEP SOUND
-if type xset; then
+## No beep sound
+if cmdchk xset; then
   xset b off
 fi
 
-# -----------------------------
-# 2. Device specific
-# -----------------------------
+## -----------------------------
+## 3. Scripts
+## -----------------------------
 
-# xinput (Thinkpad)
-if type xinput; then
+
+local_runscript=$I3_HOME/scripts/generate-config.sh
+if [ -f $local_runscript ]; then
+    $local_runscript
+fi
+
+
+## -----------------------------
+## 4. Device specific
+## -----------------------------
+
+## xinput (Thinkpad)
+if cmdchk xinput; then
   xinput set-prop 'Elan TrackPoint' 'libinput Accel Speed' -0.4
   xinput set-prop 'Elan Touchpad' 'Synaptics Two-Finger Scrolling' 1, 1
   xinput set-prop 'Elan Touchpad' 'Synaptics Tap Action' 1, 0, 0, 0, 0, 0, 0

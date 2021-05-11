@@ -1,0 +1,38 @@
+[bar/topbar]
+monitor = ${env:MONITOR:}
+
+#background = ${colors.background}
+#foreground = ${colors.foreground}
+background = ${colors.custom-background}
+foreground = ${colors.custom-foreground}
+
+width   = 100%
+height  = 36px 
+
+#padding-left        = 1px
+#padding-right       = 1px
+#module-margin-left  = 1px
+#module-margin-right = 1px
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+tray-position   = right
+tray-padding    = 1px
+
+##================================================
+
+font-0 = "NeoDunggeunmo Pro:size=20;3"
+font-1 = "NanumGothic:size=20;3"
+font-2 = "Material Design Icons:size=20;3"
+font-3 = "Hack:size=22;4"
+font-4 = "Symbola:size=20;3"
+#font-4 = "Font Awesome 5 Free"
+font-5 = "Weather Icons:size=20"
+
+##================================================
+
+modules-left = powermenu divider3 i3 divider0-1 rofi divider1-2 picom divider2-1 xwindow divider1-0
+modules-center = 
+modules-right = divider0-1 volume divider1-2 battery divider2-1 date divider1-0
+

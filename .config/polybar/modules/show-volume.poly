@@ -1,0 +1,27 @@
+[module/volume]
+type = internal/alsa
+
+format-volume-background = ${colors.custom1}
+format-volume-padding = 1px
+
+format-muted-background = ${colors.custom1}
+format-muted-padding = 1px
+
+
+format-volume = <ramp-volume> <label-volume> 
+label-volume = %percentage:2%%  
+
+label-muted = 🔇
+
+ramp-volume-0 = 🔈 
+ramp-volume-1 = 🔉 ▃
+ramp-volume-2 = 🔉 ▃
+ramp-volume-3 = 🔉 ▃
+ramp-volume-4 = 🔉 ▅
+ramp-volume-5 = 🔊 ▅
+ramp-volume-6 = 🔊 ▅
+ramp-volume-7 = 🔊 ▆
+ramp-volume-8 = 🔊 ▆
+ramp-volume-9 = 🔊 █
+
+;ramp-headphones-0 = 

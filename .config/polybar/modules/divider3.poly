@@ -1,0 +1,7 @@
+[module/divider3]
+type = custom/text
+
+content = |
+
+content-foreground = ${colors.custom3}
+content-background = ${colors.custom3}

@@ -178,10 +178,10 @@ new_float normal
 
 ## Theme colors         bar_border      win_border      text            indicator
 client.focused          $foreground     $foreground     $background     $foreground
-client.focused_inactive $backalt        $backalt        $backalt        $backalt
+client.focused_inactive $background-alt $background-alt $background-alt $background-alt
 client.unfocused        $background     $background     $foreground     $background
-client.urgent           $background     $forealt        $background     $forealt
-client.placeholder      $backalt        $backalt        $backalt        $backalt
+client.urgent           $background     $foreground-alt $background     $foreground-alt
+client.placeholder      $background-alt $background-alt $background-alt $background-alt
 client.background       $background
 
 ## switch to workspace with urgent window automatically

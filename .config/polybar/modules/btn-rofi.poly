@@ -1,0 +1,11 @@
+[module/rofi]
+type = custom/text
+
+# [Material Design Icons] \uF04F1
+content-font = 2
+content = 󰓱
+content-background = ${colors.custom1}
+content-padding = 1px
+
+click-left  = exec rofi -show drun  -theme polybar/rofi-drun.rasi
+click-right = exec rofi -show combi -theme polybar/rofi-combi.rasi

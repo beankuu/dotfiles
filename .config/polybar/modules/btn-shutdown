@@ -1,5 +1,0 @@
-[module/shutdown]
-type = custom/text
-;\uF011
-content = "  "
-click-left = shutdown now

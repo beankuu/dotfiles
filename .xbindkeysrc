@@ -1,84 +1,84 @@
-#======================================
-#
-#          xbindkeys CONFIG
-#
-#--------------------------------------
-# maintainer
-#   - beankuu@gmail.com
-#
-# hints from 
-#   - https://github.com/pschmitt/xbindkeys-config
-#--------------------------------------
-# Content
-# 1. System Basics
-# 2. Programs
-#======================================
+##======================================
+##
+##          xbindkeys CONFIG
+##
+##--------------------------------------
+## maintainer
+##   - beankuu@gmail.com
+##
+## hints from 
+##   - https://github.com/pschmitt/xbindkeys-config
+##--------------------------------------
+## Content
+## 1. System Basics
+## 2. Programs
+##======================================
 
-#======================================
-#--------------------------------------
-# Modifiers
-# - Control
-# - Shift
-# - Mod1 (Alt)
-# - Mod2 (NumLock)
-# - Mod3 (CapsLock)
-# - Mod4 (Sup)
-# - Mod5 (Scroll)
-# - Print
-#--------------------------------------
-# # Remark
-# "command"
-# m:xxx + c:xxx
-# Shift+...
-#======================================
+##======================================
+##--------------------------------------
+## Modifiers
+## - Control
+## - Shift
+## - Mod1 (Alt)
+## - Mod2 (NumLock)
+## - Mod3 (CapsLock)
+## - Mod4 (Sup)
+## - Mod5 (Scroll)
+## - Print
+##--------------------------------------
+## # Remark
+## "command"
+## m:xxx + c:xxx
+## Shift+...
+##======================================
 
-##########
-# 1. System Basics
-##########
+##--------------------------------------
+## 1. System Basics
+##--------------------------------------
 
-# Volume(Up)
+## Volume(Up)
 "amixer -q sset Master 2%+ unmute"
     XF86AudioRaiseVolume
-# Volume(Down)
+## Volume(Down)
 "amixer -q sset Master 2%- unmute"
     XF86AudioLowerVolume
-# Volume(Mute)
+## Volume(Mute)
 "amixer -q sset Master toggle"
     XF86AudioMute
 
-# Brightness(Up)
+## Brightness(Up)
 "xbacklight -inc 5"
     XF86MonBrightnessUp
-# Brightness(Down)
+## Brightness(Down)
 "xbacklight -dec 5"
     XF86MonBrightnessDown
 
-##########
-# 2. Programs
-##########
+##--------------------------------------
+## 2. Programs
+##--------------------------------------
 
-# Lock
+## Lock
 "betterlockscreen -l blur"
     Mod1 + l
 
-# Program Launcher
-#"rofi -modi drun -show drun -show-icons -theme oxide"
-"rofi -modi drun -show drun -show-icons -theme sidebar"
+## Program Launcher
+##"rofi -modi drun -show drun -show-icons -theme oxide"
+"rofi -modi drun -show drun -show-icons -theme polybar/rofi-drun"
     Mod1 + d
 
-#Terminal
+##Terminal
 "urxvt"
     Mod1 + Return 
 
-# Screenshot
+## Screenshot
 "gnome-screenshot -i"
     Mod4 + Print
 
-# Screenshot(quick)
+## Screenshot(quick)
 "scrot -o -s '/tmp/quickclip.png' -e 'xclip -selection c -t image/png < $f'"
     Shift + Mod4 + s
 
-# GUIU explorer
+## GUIU explorer
 "nemo"
     Mod4 + e
 
