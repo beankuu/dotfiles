@@ -24,10 +24,9 @@ tray-padding    = 1px
 
 font-0 = "NeoDunggeunmo Pro:size=20;3"
 font-1 = "NanumGothic:size=20;3"
-font-2 = "Material Design Icons:size=20;3"
+font-2 = "FontAwesome:size=20;3"
 font-3 = "Hack:size=22;4"
 font-4 = "Symbola:size=20;3"
-#font-4 = "Font Awesome 5 Free"
 font-5 = "Weather Icons:size=20"
 
 ##================================================

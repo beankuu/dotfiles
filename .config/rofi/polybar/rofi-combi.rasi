@@ -3,9 +3,8 @@ configuration {
     show-icons:             true;
     icon-theme:             "Papirus";
     display-combi:          "";
-    combi-display-format:    "{name}";
+    //combi-display-format:    "{name}";
     disable-history:        false;
-    hide-scrollbar:         true;
     modi:                   "combi";
 }
 

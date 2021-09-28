@@ -2,8 +2,9 @@
 type = custom/text
 
 # [Material Design Icons] \uF0425
+# [FontAwesome] \uF011
 content-font = 2
-content = 󰐥
+content = 
 content-padding = 1
 
 click-left = $POLYBAR_HOME/scripts/btn-powermenu.sh

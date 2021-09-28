@@ -2,8 +2,9 @@
 type = custom/text
 
 # [Material Design Icons] \uF0A21
+# [FontAwesome] \uF00a
 content-font = 2
-content = 󰫡
+content = 
 content-background = ${colors.custom2}
 content-padding = 1px
 

@@ -28,7 +28,7 @@ echo ====================
 echo Creating backup folder in $HOME ..
 backup_folder=backup_config
 mkdir -p $HOME/$backup_folder
-cp $scriptpath/'rollback.sh'  $HOME/$backup_folder/
+cp -r $scriptpath/'rollback.sh'  $HOME/$backup_folder/
 echo Backup @ $HOME/backup-config
 echo ====================
 
@@ -55,10 +55,10 @@ for file in $(find $scriptpath/ -type f); do
 
         # $HOME to backup_folder
         homefile=$HOME/$(echo $file | sed 's@^'"$scriptpath"'/@@g')
-        cp --parents $homefile $HOME/$backup_folder/
+        cp -r --parents $homefile $HOME/$backup_folder/
 
         # dotfiles to $HOME
-        cp $file $homefile
+        cp -r $file $homefile
 
     fi
 done

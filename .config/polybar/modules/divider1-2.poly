@@ -2,7 +2,7 @@
 type = custom/text
 
 ## Hack font
-content-font = 2
+content-font = 3
 content = 
 
 content-foreground = ${colors.custom1}
