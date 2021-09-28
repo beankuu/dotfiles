@@ -2,11 +2,11 @@
 type = custom/text
 
 # [Material Design Icons] \uF0A21
-# [FontAwesome] \uF00a
+# [FontAwesome] \uF02A
 content-font = 2
-content = 
+content = 
 content-background = ${colors.custom2}
 content-padding = 1px
 
-click-left  = sleep 0.3 && picom-trans -c +5 &
-click-right = sleep 0.3 && picom-trans -c -- -5 &
+click-left  = sleep 0.5 && picom-trans -c +5 &
+click-right = sleep 0.5 && picom-trans -c -- -5 &
