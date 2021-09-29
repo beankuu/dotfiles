@@ -5,7 +5,7 @@ format-background = ${colors.custom1}
 format-padding = 1px
 
 interval = 1.0
-date      = %B/%d %H:%M:%S
-date-alt  = %Y/%B/%d(%A)
+date      = %b/%d %H:%M:%S
+date-alt  = %Y/%b/%d(%a)
 label     = %date:10%
 
