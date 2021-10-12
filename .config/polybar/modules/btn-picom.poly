@@ -8,5 +8,5 @@ content = 
 content-background = ${colors.custom2}
 content-padding = 1px
 
-click-left  = sleep 0.5 && picom-trans -c +5 &
-click-right = sleep 0.5 && picom-trans -c -- -5 &
+click-left  = picom-trans -c +5 
+click-right = picom-trans -c -- -5 
