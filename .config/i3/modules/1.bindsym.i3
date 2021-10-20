@@ -3,7 +3,7 @@
 ## ------------------------------
 
 ## Open up terminal
-bindsym $mod+Return     exec i3-sensible-terminal
+bindsym $mod+Shift+Return     exec i3-sensible-terminal
 
 ## Window kill command
 bindsym $mod+Shift+q    kill

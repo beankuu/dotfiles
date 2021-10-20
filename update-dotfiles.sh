@@ -12,7 +12,7 @@ if ! type rsync > /dev/null; then
     echo "rsync not found! terminating..."
 fi
 
-EXCLUDE=('.git' 'dotfiles_img.png' 'rollback.sh' 'update-dotfiles.sh' 'install.sh' 'README.md')
+EXCLUDE=('.git' 'dotfiles-img.png' 'rollback.sh' 'update-dotfiles.sh' 'install.sh' 'README.md')
 
 # ===========
 # 1. confirmation prompt
