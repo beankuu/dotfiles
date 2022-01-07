@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ## 0. config files
+if [[ -z ${I3_HOME} ]]; then I3_HOME=~/.config/i3; fi
 if [ ! -d $I3_HOME ]; then notify-send "i3 error | $I3_HOME not found"; fi
 
 target=$I3_HOME/config
