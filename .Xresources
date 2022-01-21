@@ -49,7 +49,7 @@
 
 ! 3. URxvt
   URxvt.font: \
-        xft:NeoDunggeunmo Pro:size=16,\
+        xft:NeoDunggeunmo:size=16,\
         xft:NanumGothicCoding-ExtraBold:size=16,\
         xft:Symbola,\
         xft:Hack,\
